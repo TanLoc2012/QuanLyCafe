@@ -1,0 +1,10 @@
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\bin\Debug\Quanlycf.exe.config
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\bin\Debug\Quanlycf.exe
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\bin\Debug\Quanlycf.pdb
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.csproj.AssemblyReference.cache
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.Properties.Resources.resources
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.csproj.GenerateResource.cache
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.csproj.CoreCompileInputs.cache
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.exe
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.pdb
+C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.fLogin.resources
