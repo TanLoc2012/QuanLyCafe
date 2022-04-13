@@ -11,8 +11,6 @@ C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\ManagerCoffee.csproj.
 C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.exe
 C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.pdb
 C:\Users\pq\Desktop\HK212\LTNC\Quanlycf\Quanlycf\obj\Debug\Quanlycf.fAdmin.resources
-C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\bin\Debug\ManagerCoffee.mdf
-C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\bin\Debug\ManagerCoffee_log.ldf
 C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.exe.config
 C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.exe
 C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.pdb
