@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\Class"
   ],
-  "SelectedNode": "\\Class1.cs",
+  "SelectedNode": "\\fAdmin.cs",
   "PreviewInSolutionExplorer": false
 }

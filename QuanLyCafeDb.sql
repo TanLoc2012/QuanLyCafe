@@ -48,8 +48,8 @@ CREATE TABLE [dbo].[tblOrderDetail] (
 	total_money INT NOT NULL
 );
 
-INSERT INTO tblRole(role_name)
-VALUES('Staff')
+--INSERT INTO tblRole(role_name)
+--VALUES('Staff')
 
-INSERT INTO tblRole(role_name)
-VALUES('Admin')
+--INSERT INTO tblRole(role_name)
+--VALUES('Admin')
