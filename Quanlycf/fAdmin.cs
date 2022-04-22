@@ -14,6 +14,7 @@ namespace Quanlycf
     
     public partial class fAdmin : Form
     {
+        //DataTable tblNV;
         public fAdmin()
         {
             InitializeComponent();
@@ -35,6 +36,11 @@ namespace Quanlycf
             dvgUser.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
             dvgUser.EditMode = DataGridViewEditMode.EditProgrammatically;
             Class.Function.Disconnect();
+        }
+        private void frmDMNhanvien_Load(object sender, EventArgs e)
+        {
+          
+            LoadDataGridView();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -128,6 +134,111 @@ namespace Quanlycf
         }
 
         private void txtStaffName_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mskAddStaff_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtStaffID_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void id_staff_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dvgUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonFix_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtbStaffPhone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkStaffMale_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkStaffFemale_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonContinue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dvgUser_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }

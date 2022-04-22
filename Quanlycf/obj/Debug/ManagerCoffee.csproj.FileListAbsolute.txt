@@ -33,3 +33,4 @@ E:\btl_ltnc\Quanlycf\obj\Debug\ManagerCoffee.csproj.GenerateResource.cache
 E:\btl_ltnc\Quanlycf\obj\Debug\ManagerCoffee.csproj.CoreCompileInputs.cache
 E:\btl_ltnc\Quanlycf\obj\Debug\Quanlycf.exe
 E:\btl_ltnc\Quanlycf\obj\Debug\Quanlycf.pdb
+E:\btl_ltnc\Quanlycf\obj\Debug\Quanlycf.fStaff.resources

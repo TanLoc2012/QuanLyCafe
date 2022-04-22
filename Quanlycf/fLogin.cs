@@ -24,7 +24,7 @@ namespace Quanlycf
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fAdmin f = new fAdmin();
+            fStaff f = new fStaff();
             this.Hide();
             f.ShowDialog();
             Application.Exit();
