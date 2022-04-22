@@ -33,26 +33,28 @@ namespace Quanlycf
             string sql = "SELECT * FROM dbo.tblOrders";
             DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             dvgOrder.DataSource = tblCL; //Nguồn dữ liệu            
-            dvgOrder.Columns[0].Width = 50;
-            dvgOrder.Columns[0].HeaderText = "Mã số";
+            //dvgOrder.Columns[0].Width = 50;
+            //dvgOrder.Columns[0].HeaderText = "Mã số";
             
-            dvgOrder.Columns[1].Width = 50;
-            dvgOrder.Columns[1].HeaderText = "MSNV";
+            //dvgOrder.Columns[1].Width = 50;
+            //dvgOrder.Columns[1].HeaderText = "MSNV";
 
-            dvgOrder.Columns[2].Width = 70;
-            dvgOrder.Columns[2].HeaderText = "Thành tiền";
+            //dvgOrder.Columns[2].Width = 70;
+            //dvgOrder.Columns[2].HeaderText = "Thành tiền";
 
-            dvgOrder.Columns[3].Width = 50;
-            dvgOrder.Columns[3].HeaderText = "Trạng thái";
-
-            dvgOrder.Columns[4].Visible = false;
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            dvgOrder.Columns.Add(btn);
-            btn.HeaderText = "Click Data";
-            btn.Text = "Chi tiết";
-            btn.Name = "btn";
-            btn.UseColumnTextForButtonValue = true;
+            //dvgOrder.Columns[3].Width = 50;
+            //dvgOrder.Columns[3].HeaderText = "Trạng thái";
+            ////dvgOrder.size
+            //dvgOrder.Columns[4].Visible = false;
+            //DataGridViewLinkColumn btn = new DataGridViewLinkColumn();
+            //dvgOrder.Columns.Add(btn);
+            //btn.HeaderText = "Click Data";
+            //btn.Text = "Chi tiết";
+            //btn.Name = "btn";
+            //btn.UseColumnTextForLinkValue = true;
+            
             dvgOrder.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
+            dvgOrder.Columns["detail"].Tag =(Action<int>)ShowOrderDetail;  //gán tag cho sự kiện click
             
             dvgOrder.EditMode = DataGridViewEditMode.EditProgrammatically;
             Class.Function.Disconnect();
@@ -60,16 +62,19 @@ namespace Quanlycf
         }
     
         
-        void ShowOrderDetail(int id)
+        public void ShowOrderDetail(int id)
         {
             
         }
-    
+        public void ClickHandler()
+        {
+            
+        }
 
-    #endregion
+        #endregion
 
-    #region Event
-   
+        #region Event
+
         private void txtStaffID_TextChanged(object sender, EventArgs e)
         {
 
@@ -103,19 +108,37 @@ namespace Quanlycf
 
         private void dvgOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Class.Function.Connect();
-            string sql = "SELECT * FROM dbo.tblOrders";
-            DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
-            dvgOrder.DataSource = tblCL; //Nguồn dữ liệu            
-            dvgOrder.Columns[0].Width = 100;
-            dvgOrder.Columns[1].Width = 300;
-            dvgOrder.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
-            dvgOrder.EditMode = DataGridViewEditMode.EditProgrammatically;
-            Class.Function.Disconnect();
+            var grid = (DataGridView)sender;
+
+            if (e.RowIndex < 0)
+            {
+                //They clicked the header column, do nothing
+                return;
+            }
+
+            if (grid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
+            {
+                var show_detailOrder = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
+                
+
+                show_detailOrder(3); //3 là do chưa biết đưa gì vào
+            }
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void fStaff_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'managerCoffeeDataSet.tblOrders' table. You can move, or remove it, as needed.
+            this.tblOrdersTableAdapter.Fill(this.managerCoffeeDataSet.tblOrders);
 
         }
     }

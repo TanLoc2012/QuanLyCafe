@@ -22,5 +22,16 @@ namespace Quanlycf.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KPRJ34J;Initial Catalog=ManagerCoffee;Integrated Security=Tru" +
+            "e")]
+        public string ManagerCoffeeConnectionString {
+            get {
+                return ((string)(this["ManagerCoffeeConnectionString"]));
+            }
+        }
     }
 }
