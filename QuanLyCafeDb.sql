@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[tblUser] (
 
 CREATE TABLE [dbo].[tblOrders] (
 	id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	id_nv INT NOT NULL FOREIGN KEY REFERENCES tblNhanvien(id),
+	id_nv INT NOT NULL FOREIGN KEY REFERENCES tblUser(id),
 	total_money INT NOT NULL,
 	statusOrder INT NOT NULL,
 	ngay_ban DATETIME NOT NULL,
@@ -53,3 +53,16 @@ VALUES('Staff')
 
 INSERT INTO tblRole(role_name)
 VALUES('Admin')
+
+-- Modify 22-4-2022
+
+ALTER TABLE tblUser
+ADD username nvarchar(50) NOT NULL;
+
+INSERT INTO tblUser(addressU, deleted, dob, fullname, passwordNV, phone, role_id, sex, username)
+VALUES('Thu Duc', 0, '20000101', 'Admin', '123', '1111', 1, 0, 'Admin')
+
+INSERT INTO tblUser(addressU, deleted, dob, fullname, passwordNV, phone, role_id, sex, username)
+VALUES('Thu Duc', 0, '20000101', 'Staff', '123', '1111', 1, 0, 'Staff')
+
+
