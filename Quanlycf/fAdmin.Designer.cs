@@ -37,7 +37,7 @@ namespace Quanlycf
             // 
             this.dvgUser.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dvgUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgUser.Location = new System.Drawing.Point(12, 22);
+            this.dvgUser.Location = new System.Drawing.Point(12, 12);
             this.dvgUser.Name = "dvgUser";
             this.dvgUser.RowHeadersWidth = 51;
             this.dvgUser.RowTemplate.Height = 24;

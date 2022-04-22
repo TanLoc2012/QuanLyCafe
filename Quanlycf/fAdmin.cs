@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient; //Sử dụng thư viện để làm việc SQL server
+using Quanlycf.DAO;
 
 namespace Quanlycf
 {
@@ -26,16 +27,14 @@ namespace Quanlycf
 
         private void LoadDataGridView()
         {
-            Class.Function.Connect();
             string sql;
             sql = "SELECT * FROM tblUser";
-            DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            DataTable tblCL = DataProvider.Instance.ExecuteQuery(sql);
             dvgUser.DataSource = tblCL; //Nguồn dữ liệu            
             dvgUser.Columns[0].Width = 100;
             dvgUser.Columns[1].Width = 300;
             dvgUser.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
             dvgUser.EditMode = DataGridViewEditMode.EditProgrammatically;
-            Class.Function.Disconnect();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
