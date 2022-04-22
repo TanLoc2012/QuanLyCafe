@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Quanlycf.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,20 +21,35 @@ namespace Quanlycf
 
         private void fLogin_Load(object sender, EventArgs e)
         {
-            Class.Function.Connect();
+            DAO.Function.Connect();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fAdmin f = new fAdmin();
-            this.Hide();
-            f.ShowDialog();
-            Application.Exit();
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            if (Login(username, password) == 1 || Login(username, password) == 2)
+            {
+                fAdmin f = new fAdmin();
+                this.Hide();
+                f.ShowDialog();
+                Application.Exit();
+
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+          
+        int Login(string username, string password)
+        {
+            return AccountDAO.Instance.Login(username, password);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Class.Function.Disconnect();
+            DAO.Function.Disconnect();
             Application.Exit();
         }
 
