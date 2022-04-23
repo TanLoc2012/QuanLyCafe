@@ -29,7 +29,7 @@ namespace Quanlycf
         {
             string sql;
             sql = "SELECT * FROM tblUser";
-            DataTable tblCL = DataProvider.Instance.ExecuteQuery(sql);
+            DataTable tblCL = DAO.Function.GetDataToTable(sql);
             dvgUser.DataSource = tblCL; //Nguồn dữ liệu            
             dvgUser.Columns[0].Width = 100;
             dvgUser.Columns[1].Width = 300;

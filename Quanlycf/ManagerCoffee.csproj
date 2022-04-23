@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\Function.cs" />
     <Compile Include="fAdmin.cs">
       <SubType>Form</SubType>
