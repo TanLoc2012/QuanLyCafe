@@ -34,3 +34,15 @@ E:\btl_ltnc\Quanlycf\obj\Debug\ManagerCoffee.csproj.CoreCompileInputs.cache
 E:\btl_ltnc\Quanlycf\obj\Debug\Quanlycf.exe
 E:\btl_ltnc\Quanlycf\obj\Debug\Quanlycf.pdb
 E:\btl_ltnc\Quanlycf\obj\Debug\Quanlycf.fStaff.resources
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.exe.config
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.exe
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.pdb
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.AssemblyReference.cache
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fAdmin.resources
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fLogin.resources
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fStaff.resources
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.Properties.Resources.resources
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.GenerateResource.cache
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.CoreCompileInputs.cache
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.exe
+E:\BTL_ltnc_2\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.pdb
