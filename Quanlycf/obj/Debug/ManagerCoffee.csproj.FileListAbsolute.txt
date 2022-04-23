@@ -22,3 +22,12 @@ C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.cspro
 C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.CoreCompileInputs.cache
 C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.exe
 C:\Users\pq\Desktop\HK212\LTNC\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.pdb
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.AssemblyReference.cache
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fAdmin.resources
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fLogin.resources
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fStaff.resources
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.Properties.Resources.resources
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.GenerateResource.cache
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.CoreCompileInputs.cache
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.exe
+E:\bt_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.pdb
