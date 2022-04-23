@@ -16,7 +16,7 @@ namespace Quanlycf.DAO
         public static void Connect()
         {
             Con = new SqlConnection();   //Khởi tạo đối tượng
-            Con.ConnectionString = @"Data Source=desktop-5bjtq7n\sqlexpress;Initial Catalog=ManageCoffee;Integrated Security=True";
+            Con.ConnectionString = @"Data Source=DESKTOP-KPRJ34J;Initial Catalog=ManagerCoffee;Integrated Security=True";
             Con.Open();                  //Mở kết nối
             //Kiểm tra kết nối
             
