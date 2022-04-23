@@ -130,12 +130,7 @@ namespace Quanlycf
 
         }
 
-        private void fStaff_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'managerCoffeeDataSet.tblOrders' table. You can move, or remove it, as needed.
-            this.tblOrdersTableAdapter.Fill(this.managerCoffeeDataSet.tblOrders);
-
-        }
+     
     }
 
 }

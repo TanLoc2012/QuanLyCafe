@@ -17,16 +17,9 @@ namespace Quanlycf.DAO
             private set { OrderDetailDAO.instance = value; }
         }
         private OrderDetailDAO() { }
-        public void LoadProductList()
-        {
-            List<Product> list_products = new List<Product>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetProductList");
-            foreach (DataRow item in data.Rows)
-            {
-
-            }
+       
         }
 
 
-    }
 }
+

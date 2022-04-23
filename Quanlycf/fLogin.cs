@@ -30,7 +30,7 @@ namespace Quanlycf
             string password = txtPassword.Text;
             if (Login(username, password) == 1 || Login(username, password) == 2)
             {
-                fAdmin f = new fAdmin();
+                fStaff f = new fStaff();
                 this.Hide();
                 f.ShowDialog();
                 Application.Exit();

@@ -69,12 +69,6 @@
     <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\OrderDetail.cs" />
     <Compile Include="DTO\Product.cs" />
-    <Compile Include="fAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fAdmin.Designer.cs">
-      <DependentUpon>fAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="fAdmin.resx">
-      <DependentUpon>fAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>

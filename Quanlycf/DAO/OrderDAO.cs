@@ -24,18 +24,7 @@ namespace Quanlycf.DAO
 
         }
 
-        public List<Order> LoadOrderList()
-        {
-            List<Order> OrderList = new List<Order>();
-
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetOrderList");
-            foreach (DataRow item in data.Rows)
-            {
-                Order order = new Order(item);
-                OrderList.Add(order);
-            }
-            return OrderList;
-        }
+       
 
     }
 }
