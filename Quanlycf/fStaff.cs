@@ -15,7 +15,9 @@ namespace Quanlycf
         public fStaff()
         {
             InitializeComponent();
+            DAO.Function.Connect();
             LoadOrder();
+            DAO.Function.Disconnect();
         }
         #region Method
 
@@ -27,7 +29,7 @@ namespace Quanlycf
             //    Button btn = new Button() { Width = OrderDAO.OrderWidth, Height = OrderDAO.OrderHeight };
 
             //}
-            DAO.Function.Connect();
+            
             //string sql = "SELECT * FROM dbo.tblOrders";
             //DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             //dvgOrder.DataSource = tblCL; //Nguồn dữ liệu            
@@ -54,14 +56,55 @@ namespace Quanlycf
             dvgOrder.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
             dvgOrder.Columns["detail"].Tag = (Action<int>)ShowOrderDetail;  //gán tag cho sự kiện click
             dvgOrder.EditMode = DataGridViewEditMode.EditProgrammatically;
-            DAO.Function.Disconnect();
+            
 
         }
 
 
         public void ShowOrderDetail(int id)
         {
-            MessageBox.Show(id.ToString());
+            DAO.Function.Connect();
+            
+            string sqlOrderDetail = "SELECT * FROM tblOrderDetail" + "\n"+
+            "WHERE tblOrderDetail.order_id = "+id.ToString();
+            string sqlProduct = "SELECT * FROM tblProduct";
+            DataTable tblDetail = DAO.Function.GetDataToTable(sqlOrderDetail);
+            DataTable tblProduct = DAO.Function.GetDataToTable(sqlProduct);
+            DataTable Product_show = new DataTable();
+            Product_show.Columns.Add("id");
+            Product_show.Columns.Add("category_id");
+            Product_show.Columns.Add("title");
+            Product_show.Columns.Add("thumbnail");
+            Product_show.Columns.Add("descriptionP");
+            Product_show.Columns.Add("deleted");
+            Product_show.Columns.Add("discount");
+
+            foreach (DataRow row_orderdetail in tblDetail.Rows)
+            {
+                foreach(DataRow row_product in tblProduct.Rows )
+                {
+                    if ((int)row_orderdetail["product_id"] ==(int)row_product["id"])
+                    {
+                        Product_show.Rows.Add(row_product);
+                    }    
+                }
+                
+            }
+            dvgOrderDetail.DataSource = Product_show;
+            DAO.Function.Disconnect();
+            
+
+
+
+
+
+
+
+            //    string sqlProducts = "SELECT * FROM tblProduct" +
+            //    "WHERE tblOrder.id="+
+            //DataTable tblProducts = DAO.Function.GetDataToTable(sqlProducts);
+            //dvgOrderDetail.DataSource = tblDetail;
+           
         }
 
 
@@ -100,9 +143,21 @@ namespace Quanlycf
 
         #endregion
 
+       
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void dvgOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var grid = (DataGridView)sender;
+          var grid = (DataGridView)sender;
 
             if (e.RowIndex < 0)
             {
@@ -116,21 +171,26 @@ namespace Quanlycf
                 var show_detailOrder = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
                 int ID = (int)dvgOrder.Rows[e.RowIndex].Cells[0].Value;
 
-                show_detailOrder(ID); //3 là do chưa biết đưa gì vào
+                show_detailOrder(ID); 
             }
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
+        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void fStaff_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'managerCoffeeDataSet.tblOrders' table. You can move, or remove it, as needed.
+            this.tblOrdersTableAdapter.Fill(this.managerCoffeeDataSet.tblOrders);
 
         }
 
-     
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }

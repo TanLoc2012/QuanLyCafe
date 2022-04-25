@@ -81,6 +81,11 @@
     <Compile Include="fStaff.Designer.cs">
       <DependentUpon>fStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagerCoffeeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagerCoffeeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fLogin.resx">
@@ -98,6 +103,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ManagerCoffeeDataSet.xsc">
+      <DependentUpon>ManagerCoffeeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ManagerCoffeeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ManagerCoffeeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ManagerCoffeeDataSet.xss">
+      <DependentUpon>ManagerCoffeeDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -41,24 +41,34 @@ namespace Quanlycf
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.detail = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dvgOrderDetail = new System.Windows.Forms.DataGridView();
             this.dvgOrder = new System.Windows.Forms.DataGridView();
+            this.tblOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tblOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.managerCoffeeDataSet = new Quanlycf.ManagerCoffeeDataSet();
+            this.tblOrdersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tblOrdersTableAdapter = new Quanlycf.ManagerCoffeeDataSetTableAdapters.tblOrdersTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idnvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalmoneyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaybanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detail = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgOrderDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // adminToolStripMenuItem
@@ -97,10 +107,11 @@ namespace Quanlycf
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel5.Controls.Add(this.buttonThanhtoan);
-            this.panel5.Location = new System.Drawing.Point(324, 344);
+            this.panel5.Location = new System.Drawing.Point(491, 344);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(285, 50);
+            this.panel5.Size = new System.Drawing.Size(289, 50);
             this.panel5.TabIndex = 2;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // textBox3
             // 
@@ -150,47 +161,51 @@ namespace Quanlycf
             this.panel6.Controls.Add(this.numericUpDown1);
             this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.comboBox1);
-            this.panel6.Location = new System.Drawing.Point(323, 3);
+            this.panel6.Location = new System.Drawing.Point(491, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(289, 65);
             this.panel6.TabIndex = 3;
             // 
-            // detail
+            // dvgOrderDetail
             // 
-            this.detail.HeaderText = "";
-            this.detail.Name = "detail";
-            this.detail.ReadOnly = true;
-            this.detail.Text = "Chi tiết";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(324, 74);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(285, 267);
-            this.dataGridView2.TabIndex = 4;
+            this.dvgOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgOrderDetail.Location = new System.Drawing.Point(491, 74);
+            this.dvgOrderDetail.Name = "dvgOrderDetail";
+            this.dvgOrderDetail.Size = new System.Drawing.Size(289, 267);
+            this.dvgOrderDetail.TabIndex = 4;
+            this.dvgOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
             // 
             // dvgOrder
             // 
             this.dvgOrder.AutoGenerateColumns = false;
             this.dvgOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.idnvDataGridViewTextBoxColumn,
+            this.totalmoneyDataGridViewTextBoxColumn,
+            this.statusOrderDataGridViewTextBoxColumn,
+            this.ngaybanDataGridViewTextBoxColumn,
             this.detail});
-            this.dvgOrder.DataSource = this.tblOrdersBindingSource;
+            this.dvgOrder.DataSource = this.tblOrdersBindingSource1;
             this.dvgOrder.Location = new System.Drawing.Point(3, 3);
             this.dvgOrder.Name = "dvgOrder";
-            this.dvgOrder.Size = new System.Drawing.Size(314, 391);
+            this.dvgOrder.Size = new System.Drawing.Size(411, 391);
             this.dvgOrder.TabIndex = 0;
+            this.dvgOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgOrder_CellContentClick);
+            // 
+            // tblOrdersBindingSource
+            // 
+            this.tblOrdersBindingSource.DataMember = "tblOrders";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.dvgOrderDetail);
             this.panel1.Controls.Add(this.dvgOrder);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Location = new System.Drawing.Point(12, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(612, 418);
+            this.panel1.Size = new System.Drawing.Size(788, 418);
             this.panel1.TabIndex = 4;
             // 
             // dataGridView1
@@ -224,9 +239,62 @@ namespace Quanlycf
             this.label1.Size = new System.Drawing.Size(0, 31);
             this.label1.TabIndex = 1;
             // 
-            // tblOrdersBindingSource
+            // managerCoffeeDataSet
             // 
-            this.tblOrdersBindingSource.DataMember = "tblOrders";
+            this.managerCoffeeDataSet.DataSetName = "ManagerCoffeeDataSet";
+            this.managerCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblOrdersBindingSource1
+            // 
+            this.tblOrdersBindingSource1.DataMember = "tblOrders";
+            this.tblOrdersBindingSource1.DataSource = this.managerCoffeeDataSet;
+            // 
+            // tblOrdersTableAdapter
+            // 
+            this.tblOrdersTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // idnvDataGridViewTextBoxColumn
+            // 
+            this.idnvDataGridViewTextBoxColumn.DataPropertyName = "id_nv";
+            this.idnvDataGridViewTextBoxColumn.HeaderText = "MSNV";
+            this.idnvDataGridViewTextBoxColumn.Name = "idnvDataGridViewTextBoxColumn";
+            this.idnvDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // totalmoneyDataGridViewTextBoxColumn
+            // 
+            this.totalmoneyDataGridViewTextBoxColumn.DataPropertyName = "total_money";
+            this.totalmoneyDataGridViewTextBoxColumn.HeaderText = "Thành tiền";
+            this.totalmoneyDataGridViewTextBoxColumn.Name = "totalmoneyDataGridViewTextBoxColumn";
+            // 
+            // statusOrderDataGridViewTextBoxColumn
+            // 
+            this.statusOrderDataGridViewTextBoxColumn.DataPropertyName = "statusOrder";
+            this.statusOrderDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.statusOrderDataGridViewTextBoxColumn.HeaderText = "Trạng thái";
+            this.statusOrderDataGridViewTextBoxColumn.Name = "statusOrderDataGridViewTextBoxColumn";
+            this.statusOrderDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // ngaybanDataGridViewTextBoxColumn
+            // 
+            this.ngaybanDataGridViewTextBoxColumn.DataPropertyName = "ngay_ban";
+            this.ngaybanDataGridViewTextBoxColumn.HeaderText = "ngay_ban";
+            this.ngaybanDataGridViewTextBoxColumn.Name = "ngaybanDataGridViewTextBoxColumn";
+            this.ngaybanDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // detail
+            // 
+            this.detail.HeaderText = "";
+            this.detail.Name = "detail";
+            this.detail.ReadOnly = true;
+            this.detail.Text = "Chi tiết";
             // 
             // fStaff
             // 
@@ -237,19 +305,22 @@ namespace Quanlycf
             this.Controls.Add(this.panel3);
             this.Name = "fStaff";
             this.Text = "fStaff";
+            this.Load += new System.EventHandler(this.fStaff_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgOrderDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,12 +339,20 @@ namespace Quanlycf
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.BindingSource tblOrdersBindingSource;
-        private System.Windows.Forms.DataGridViewButtonColumn detail;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dvgOrderDetail;
         private System.Windows.Forms.DataGridView dvgOrder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
+        private ManagerCoffeeDataSet managerCoffeeDataSet;
+        private System.Windows.Forms.BindingSource tblOrdersBindingSource1;
+        private ManagerCoffeeDataSetTableAdapters.tblOrdersTableAdapter tblOrdersTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idnvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalmoneyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaybanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn detail;
     }
 }
