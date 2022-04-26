@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using Quanlycf.DTO;
-namespace Quanlycf.DAO
+namespace Quanlycf.Staff
 {
     class OrderDetailDAO
     {

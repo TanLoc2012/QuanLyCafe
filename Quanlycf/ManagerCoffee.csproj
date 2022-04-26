@@ -61,8 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Staff\AccountDAO.cs" />
     <Compile Include="Class\Function.cs" />
+    <Compile Include="Staff\AccountDAO.cs" />
     <Compile Include="Staff\OrderDAO.cs" />
     <Compile Include="Staff\OrderDetailDAO.cs" />
     <Compile Include="Staff\ProductDAO.cs" />

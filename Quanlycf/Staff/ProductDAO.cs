@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quanlycf.DAO
+namespace Quanlycf.Staff
 {
     public class ProductDAO
     {

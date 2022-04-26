@@ -1,4 +1,4 @@
-﻿using Quanlycf.DAO;
+﻿using Quanlycf.Staff;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +21,7 @@ namespace Quanlycf
 
         private void fLogin_Load(object sender, EventArgs e)
         {
-            DAO.Function.Connect();
+            Class.Function.Connect();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Quanlycf
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DAO.Function.Disconnect();
+            Class.Function.Disconnect();
             Application.Exit();
         }
 

@@ -15,9 +15,9 @@ namespace Quanlycf
         public fStaff()
         {
             InitializeComponent();
-            DAO.Function.Connect();
+            Class.Function.Connect();
             LoadOrder();
-            DAO.Function.Disconnect();
+            Class.Function.Disconnect();
         }
         #region Method
 
@@ -63,7 +63,7 @@ namespace Quanlycf
 
         public void ShowOrderDetail(int id)
         {
-            DAO.Function.Connect();
+            Class.Function.Connect();
 
             string sqlOrderDetail = "SELECT tblOrderDetail.*, tblProduct.title" + "\n" +
             "FROM tblOrderDetail LEFT JOIN tblProduct on tblProduct.id = tblOrderDetail.product_id" + "\n" +
@@ -73,9 +73,9 @@ namespace Quanlycf
             DataTable Product_show = Class.Function.GetDataToTable(sqlOrderDetail);
             dvgOrderDetail.DataSource = Product_show;
             dvgOrderDetail.Columns["id"].Visible = false;
-            dvgAddProduct.Columns["order_id"].Visible = false;
+           // dvgAddProduct.Columns["order_id"].Visible = false;
             
-            DAO.Function.Disconnect();
+            Class.Function.Disconnect();
             
 
 
