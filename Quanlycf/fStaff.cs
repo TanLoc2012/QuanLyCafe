@@ -29,32 +29,35 @@ namespace Quanlycf
             //    Button btn = new Button() { Width = OrderDAO.OrderWidth, Height = OrderDAO.OrderHeight };
 
             //}
+
+            string sql = "SELECT * FROM dbo.tblOrders";
+            DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dvgOrder.DataSource = tblCL; //Nguồn dữ liệu            
+            dvgOrder.Columns[0].Width = 50;
+            dvgOrder.Columns[0].HeaderText = "Mã số";
+
+            dvgOrder.Columns[1].Width = 50;
+            dvgOrder.Columns[1].HeaderText = "MSNV";
+
+            dvgOrder.Columns[2].Width = 70;
+            dvgOrder.Columns[2].HeaderText = "Thành tiền";
+
+            dvgOrder.Columns[3].Width = 50;
+            dvgOrder.Columns[3].HeaderText = "Trạng thái";
+            //dvgOrder.size
+            dvgOrder.Columns[4].Visible = false;
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             
-            //string sql = "SELECT * FROM dbo.tblOrders";
-            //DataTable tblCL = DAO.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
-            //dvgOrder.DataSource = tblCL; //Nguồn dữ liệu            
-            //dvgOrder.Columns[0].Width = 50;
-            //dvgOrder.Columns[0].HeaderText = "Mã số";
-
-            //dvgOrder.Columns[1].Width = 50;
-            //dvgOrder.Columns[1].HeaderText = "MSNV";
-
-            //dvgOrder.Columns[2].Width = 70;
-            //dvgOrder.Columns[2].HeaderText = "Thành tiền";
-
-            //dvgOrder.Columns[3].Width = 50;
-            //dvgOrder.Columns[3].HeaderText = "Trạng thái";
-            ////dvgOrder.size
-            //dvgOrder.Columns[4].Visible = false;
-            //DataGridViewLinkColumn btn = new DataGridViewLinkColumn();
-            //dvgOrder.Columns.Add(btn);
-            //btn.HeaderText = "Click Data";
-            //btn.Text = "Chi tiết";
-            //btn.Name = "btn";
-            //btn.UseColumnTextForLinkValue = true;
+            btn.HeaderText = "";
+            btn.Text = "Chi tiết";
+            
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            btn.Tag = (Action<int>)ShowOrderDetail;
+            dvgOrder.Columns.Add(btn);
 
             dvgOrder.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
-            dvgOrder.Columns["detail"].Tag = (Action<int>)ShowOrderDetail;  //gán tag cho sự kiện click
+            
             dvgOrder.EditMode = DataGridViewEditMode.EditProgrammatically;
             
 
@@ -72,9 +75,21 @@ namespace Quanlycf
 
             DataTable Product_show = Class.Function.GetDataToTable(sqlOrderDetail);
             dvgOrderDetail.DataSource = Product_show;
+
             dvgOrderDetail.Columns["id"].Visible = false;
-           // dvgAddProduct.Columns["order_id"].Visible = false;
+            dvgOrderDetail.Columns["order_id"].Visible = false;
+            dvgOrderDetail.Columns["product_id"].Visible = false;
+
+
+            dvgOrderDetail.Columns["title"].HeaderText = "Món";
+            dvgOrderDetail.Columns["title"].Width = 150;
             
+
+            dvgOrderDetail.Columns["price"].HeaderText = "Thành tiền";
+            dvgOrderDetail.Columns["price"].Width = 60;
+
+
+
             Class.Function.Disconnect();
             
 

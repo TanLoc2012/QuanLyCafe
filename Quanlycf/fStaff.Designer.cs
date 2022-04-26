@@ -43,12 +43,6 @@ namespace Quanlycf
             this.panel6 = new System.Windows.Forms.Panel();
             this.dvgAddProduct = new System.Windows.Forms.DataGridView();
             this.dvgOrder = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idnvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalmoneyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaybanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detail = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tblOrdersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.managerCoffeeDataSet = new Quanlycf.ManagerCoffeeDataSet();
             this.tblOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -181,64 +175,12 @@ namespace Quanlycf
             // 
             // dvgOrder
             // 
-            this.dvgOrder.AutoGenerateColumns = false;
             this.dvgOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.idnvDataGridViewTextBoxColumn,
-            this.totalmoneyDataGridViewTextBoxColumn,
-            this.statusOrderDataGridViewTextBoxColumn,
-            this.ngaybanDataGridViewTextBoxColumn,
-            this.detail});
-            this.dvgOrder.DataSource = this.tblOrdersBindingSource1;
             this.dvgOrder.Location = new System.Drawing.Point(3, 3);
             this.dvgOrder.Name = "dvgOrder";
             this.dvgOrder.Size = new System.Drawing.Size(411, 186);
             this.dvgOrder.TabIndex = 0;
             this.dvgOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgOrder_CellContentClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // idnvDataGridViewTextBoxColumn
-            // 
-            this.idnvDataGridViewTextBoxColumn.DataPropertyName = "id_nv";
-            this.idnvDataGridViewTextBoxColumn.HeaderText = "MSNV";
-            this.idnvDataGridViewTextBoxColumn.Name = "idnvDataGridViewTextBoxColumn";
-            this.idnvDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // totalmoneyDataGridViewTextBoxColumn
-            // 
-            this.totalmoneyDataGridViewTextBoxColumn.DataPropertyName = "total_money";
-            this.totalmoneyDataGridViewTextBoxColumn.HeaderText = "Thành tiền";
-            this.totalmoneyDataGridViewTextBoxColumn.Name = "totalmoneyDataGridViewTextBoxColumn";
-            // 
-            // statusOrderDataGridViewTextBoxColumn
-            // 
-            this.statusOrderDataGridViewTextBoxColumn.DataPropertyName = "statusOrder";
-            this.statusOrderDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.statusOrderDataGridViewTextBoxColumn.HeaderText = "Trạng thái";
-            this.statusOrderDataGridViewTextBoxColumn.Name = "statusOrderDataGridViewTextBoxColumn";
-            this.statusOrderDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // ngaybanDataGridViewTextBoxColumn
-            // 
-            this.ngaybanDataGridViewTextBoxColumn.DataPropertyName = "ngay_ban";
-            this.ngaybanDataGridViewTextBoxColumn.HeaderText = "ngay_ban";
-            this.ngaybanDataGridViewTextBoxColumn.Name = "ngaybanDataGridViewTextBoxColumn";
-            this.ngaybanDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // detail
-            // 
-            this.detail.HeaderText = "";
-            this.detail.Name = "detail";
-            this.detail.ReadOnly = true;
-            this.detail.Text = "Chi tiết";
             // 
             // tblOrdersBindingSource1
             // 
@@ -383,12 +325,6 @@ namespace Quanlycf
         private ManagerCoffeeDataSet managerCoffeeDataSet;
         private System.Windows.Forms.BindingSource tblOrdersBindingSource1;
         private ManagerCoffeeDataSetTableAdapters.tblOrdersTableAdapter tblOrdersTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idnvDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalmoneyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusOrderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaybanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn detail;
         private System.Windows.Forms.Button buttonComplete;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridView dvgOrderDetail;
