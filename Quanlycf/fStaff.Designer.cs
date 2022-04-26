@@ -41,34 +41,38 @@ namespace Quanlycf
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dvgOrderDetail = new System.Windows.Forms.DataGridView();
+            this.dvgAddProduct = new System.Windows.Forms.DataGridView();
             this.dvgOrder = new System.Windows.Forms.DataGridView();
-            this.tblOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.managerCoffeeDataSet = new Quanlycf.ManagerCoffeeDataSet();
-            this.tblOrdersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tblOrdersTableAdapter = new Quanlycf.ManagerCoffeeDataSetTableAdapters.tblOrdersTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idnvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalmoneyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaybanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detail = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tblOrdersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.managerCoffeeDataSet = new Quanlycf.ManagerCoffeeDataSet();
+            this.tblOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonComplete = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.dvgOrderDetail = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tblOrdersTableAdapter = new Quanlycf.ManagerCoffeeDataSetTableAdapters.tblOrdersTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgOrderDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgAddProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgOrderDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // adminToolStripMenuItem
@@ -166,14 +170,14 @@ namespace Quanlycf
             this.panel6.Size = new System.Drawing.Size(289, 65);
             this.panel6.TabIndex = 3;
             // 
-            // dvgOrderDetail
+            // dvgAddProduct
             // 
-            this.dvgOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgOrderDetail.Location = new System.Drawing.Point(491, 74);
-            this.dvgOrderDetail.Name = "dvgOrderDetail";
-            this.dvgOrderDetail.Size = new System.Drawing.Size(289, 267);
-            this.dvgOrderDetail.TabIndex = 4;
-            this.dvgOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
+            this.dvgAddProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgAddProduct.Location = new System.Drawing.Point(491, 74);
+            this.dvgAddProduct.Name = "dvgAddProduct";
+            this.dvgAddProduct.Size = new System.Drawing.Size(289, 267);
+            this.dvgAddProduct.TabIndex = 4;
+            this.dvgAddProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgAddProduct_CellContentClick);
             // 
             // dvgOrder
             // 
@@ -189,69 +193,9 @@ namespace Quanlycf
             this.dvgOrder.DataSource = this.tblOrdersBindingSource1;
             this.dvgOrder.Location = new System.Drawing.Point(3, 3);
             this.dvgOrder.Name = "dvgOrder";
-            this.dvgOrder.Size = new System.Drawing.Size(411, 391);
+            this.dvgOrder.Size = new System.Drawing.Size(411, 186);
             this.dvgOrder.TabIndex = 0;
             this.dvgOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgOrder_CellContentClick);
-            // 
-            // tblOrdersBindingSource
-            // 
-            this.tblOrdersBindingSource.DataMember = "tblOrders";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dvgOrderDetail);
-            this.panel1.Controls.Add(this.dvgOrder);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Location = new System.Drawing.Point(12, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(788, 418);
-            this.panel1.TabIndex = 4;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 445);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 5);
-            this.dataGridView1.TabIndex = 26;
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.menuStrip1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 445);
-            this.panel3.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(136, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 31);
-            this.label1.TabIndex = 1;
-            // 
-            // managerCoffeeDataSet
-            // 
-            this.managerCoffeeDataSet.DataSetName = "ManagerCoffeeDataSet";
-            this.managerCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblOrdersBindingSource1
-            // 
-            this.tblOrdersBindingSource1.DataMember = "tblOrders";
-            this.tblOrdersBindingSource1.DataSource = this.managerCoffeeDataSet;
-            // 
-            // tblOrdersTableAdapter
-            // 
-            this.tblOrdersTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -296,6 +240,96 @@ namespace Quanlycf
             this.detail.ReadOnly = true;
             this.detail.Text = "Chi tiết";
             // 
+            // tblOrdersBindingSource1
+            // 
+            this.tblOrdersBindingSource1.DataMember = "tblOrders";
+            this.tblOrdersBindingSource1.DataSource = this.managerCoffeeDataSet;
+            // 
+            // managerCoffeeDataSet
+            // 
+            this.managerCoffeeDataSet.DataSetName = "ManagerCoffeeDataSet";
+            this.managerCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblOrdersBindingSource
+            // 
+            this.tblOrdersBindingSource.DataMember = "tblOrders";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.buttonComplete);
+            this.panel1.Controls.Add(this.buttonDelete);
+            this.panel1.Controls.Add(this.dvgOrderDetail);
+            this.panel1.Controls.Add(this.dvgAddProduct);
+            this.panel1.Controls.Add(this.dvgOrder);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Location = new System.Drawing.Point(12, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(788, 418);
+            this.panel1.TabIndex = 4;
+            // 
+            // buttonComplete
+            // 
+            this.buttonComplete.Location = new System.Drawing.Point(225, 383);
+            this.buttonComplete.Name = "buttonComplete";
+            this.buttonComplete.Size = new System.Drawing.Size(75, 23);
+            this.buttonComplete.TabIndex = 7;
+            this.buttonComplete.Text = "Hoàn thành";
+            this.buttonComplete.UseVisualStyleBackColor = true;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(323, 383);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 21);
+            this.buttonDelete.TabIndex = 6;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            // 
+            // dvgOrderDetail
+            // 
+            this.dvgOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgOrderDetail.Location = new System.Drawing.Point(3, 195);
+            this.dvgOrderDetail.Name = "dvgOrderDetail";
+            this.dvgOrderDetail.Size = new System.Drawing.Size(411, 219);
+            this.dvgOrderDetail.TabIndex = 5;
+            this.dvgOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgOrderDetail_CellContentClick);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 445);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(800, 5);
+            this.dataGridView1.TabIndex = 26;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.menuStrip1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(800, 445);
+            this.panel3.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(136, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 31);
+            this.label1.TabIndex = 1;
+            // 
+            // tblOrdersTableAdapter
+            // 
+            this.tblOrdersTableAdapter.ClearBeforeFill = true;
+            // 
             // fStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,15 +346,16 @@ namespace Quanlycf
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgOrderDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgAddProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dvgOrderDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblOrdersBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,7 +374,7 @@ namespace Quanlycf
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.BindingSource tblOrdersBindingSource;
-        private System.Windows.Forms.DataGridView dvgOrderDetail;
+        private System.Windows.Forms.DataGridView dvgAddProduct;
         private System.Windows.Forms.DataGridView dvgOrder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -354,5 +389,8 @@ namespace Quanlycf
         private System.Windows.Forms.DataGridViewTextBoxColumn statusOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaybanDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn detail;
+        private System.Windows.Forms.Button buttonComplete;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.DataGridView dvgOrderDetail;
     }
 }

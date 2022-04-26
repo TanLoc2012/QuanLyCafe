@@ -61,14 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\Function.cs" />
-    <Compile Include="DAO\OrderDAO.cs" />
-    <Compile Include="DAO\OrderDetailDAO.cs" />
-    <Compile Include="DAO\ProductDAO.cs" />
-    <Compile Include="DTO\Order.cs" />
-    <Compile Include="DTO\OrderDetail.cs" />
-    <Compile Include="DTO\Product.cs" />
+    <Compile Include="Staff\AccountDAO.cs" />
+    <Compile Include="Class\Function.cs" />
+    <Compile Include="Staff\OrderDAO.cs" />
+    <Compile Include="Staff\OrderDetailDAO.cs" />
+    <Compile Include="Staff\ProductDAO.cs" />
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>

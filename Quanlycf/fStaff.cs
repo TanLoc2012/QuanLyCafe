@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Quanlycf.Class;
 namespace Quanlycf
 {
     public partial class fStaff : Form
@@ -31,7 +31,7 @@ namespace Quanlycf
             //}
             
             //string sql = "SELECT * FROM dbo.tblOrders";
-            //DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            //DataTable tblCL = DAO.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             //dvgOrder.DataSource = tblCL; //Nguồn dữ liệu            
             //dvgOrder.Columns[0].Width = 50;
             //dvgOrder.Columns[0].HeaderText = "Mã số";
@@ -64,33 +64,17 @@ namespace Quanlycf
         public void ShowOrderDetail(int id)
         {
             DAO.Function.Connect();
-            
-            string sqlOrderDetail = "SELECT * FROM tblOrderDetail" + "\n"+
-            "WHERE tblOrderDetail.order_id = "+id.ToString();
-            string sqlProduct = "SELECT * FROM tblProduct";
-            DataTable tblDetail = DAO.Function.GetDataToTable(sqlOrderDetail);
-            DataTable tblProduct = DAO.Function.GetDataToTable(sqlProduct);
-            DataTable Product_show = new DataTable();
-            Product_show.Columns.Add("id");
-            Product_show.Columns.Add("category_id");
-            Product_show.Columns.Add("title");
-            Product_show.Columns.Add("thumbnail");
-            Product_show.Columns.Add("descriptionP");
-            Product_show.Columns.Add("deleted");
-            Product_show.Columns.Add("discount");
 
-            foreach (DataRow row_orderdetail in tblDetail.Rows)
-            {
-                foreach(DataRow row_product in tblProduct.Rows )
-                {
-                    if ((int)row_orderdetail["product_id"] ==(int)row_product["id"])
-                    {
-                        Product_show.Rows.Add(row_product);
-                    }    
-                }
-                
-            }
+            string sqlOrderDetail = "SELECT tblOrderDetail.*, tblProduct.title" + "\n" +
+            "FROM tblOrderDetail LEFT JOIN tblProduct on tblProduct.id = tblOrderDetail.product_id" + "\n" +
+            "WHERE tblOrderDetail.order_id = " + id.ToString();
+
+
+            DataTable Product_show = Class.Function.GetDataToTable(sqlOrderDetail);
             dvgOrderDetail.DataSource = Product_show;
+            dvgOrderDetail.Columns["id"].Visible = false;
+            dvgAddProduct.Columns["order_id"].Visible = false;
+            
             DAO.Function.Disconnect();
             
 
@@ -100,10 +84,7 @@ namespace Quanlycf
 
 
 
-            //    string sqlProducts = "SELECT * FROM tblProduct" +
-            //    "WHERE tblOrder.id="+
-            //DataTable tblProducts = DAO.Function.GetDataToTable(sqlProducts);
-            //dvgOrderDetail.DataSource = tblDetail;
+            
            
         }
 
@@ -174,8 +155,7 @@ namespace Quanlycf
                 show_detailOrder(ID); 
             }
         }
-
-        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dvgAddProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -188,6 +168,11 @@ namespace Quanlycf
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dvgOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
