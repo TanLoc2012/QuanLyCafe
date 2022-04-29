@@ -16,7 +16,7 @@ namespace Quanlycf
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fStaff());
+            Application.Run(new fAdmin());
         }
     }
 }

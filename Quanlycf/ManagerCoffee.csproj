@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +63,58 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Function.cs" />
+    <Compile Include="AdminControl\fAddNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminControl\fAddNV.Designer.cs">
+      <DependentUpon>fAddNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin.Designer.cs">
+      <DependentUpon>fAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControl\fDeleteNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminControl\fDeleteNV.Designer.cs">
+      <DependentUpon>fDeleteNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControl\fEditAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminControl\fEditAdmin.Designer.cs">
+      <DependentUpon>fEditAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControl\fFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminControl\fFilter.Designer.cs">
+      <DependentUpon>fFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChart.Designer.cs">
+      <DependentUpon>fChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fViewDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fViewDetail.Designer.cs">
+      <DependentUpon>fViewDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerCoffeeDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagerCoffeeDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerCoffeeDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagerCoffeeDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Staff\AccountDAO.cs" />
     <Compile Include="Staff\OrderDAO.cs" />
     <Compile Include="Staff\OrderDetailDAO.cs" />
@@ -85,11 +138,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminControl\fAddNV.resx">
+      <DependentUpon>fAddNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin.resx">
+      <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControl\fDeleteNV.resx">
+      <DependentUpon>fDeleteNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControl\fEditAdmin.resx">
+      <DependentUpon>fEditAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControl\fFilter.resx">
+      <DependentUpon>fFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fChart.resx">
+      <DependentUpon>fChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fStaff.resx">
       <DependentUpon>fStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fViewDetail.resx">
+      <DependentUpon>fViewDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -110,6 +184,28 @@
     </None>
     <None Include="ManagerCoffeeDataSet.xss">
       <DependentUpon>ManagerCoffeeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ManagerCoffeeDataSet1.xsc">
+      <DependentUpon>ManagerCoffeeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ManagerCoffeeDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ManagerCoffeeDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ManagerCoffeeDataSet1.xss">
+      <DependentUpon>ManagerCoffeeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ManagerCoffeeDataSet2.xsc">
+      <DependentUpon>ManagerCoffeeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ManagerCoffeeDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ManagerCoffeeDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ManagerCoffeeDataSet2.xss">
+      <DependentUpon>ManagerCoffeeDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -16,7 +16,7 @@ namespace Quanlycf.Class
         public static void Connect()
         {
             Con = new SqlConnection();   //Khởi tạo đối tượng
-            Con.ConnectionString = @"Data Source=DESKTOP-KPRJ34J;Initial Catalog=ManagerCoffee;Integrated Security=True";
+            Con.ConnectionString = @"Data Source=DESKTOP-6VUOC5Q\MYSERVER_SQL;Initial Catalog=ManagerCoffee;Integrated Security=True";
             Con.Open();                  //Mở kết nối
             //Kiểm tra kết nối
             if (!(Con.State == ConnectionState.Open))
@@ -42,7 +42,7 @@ namespace Quanlycf.Class
                 Con = null;
             }
         }
-        public static bool interactQuery(string query)
+        public static bool updateData(string query)
         {
             try
             {
