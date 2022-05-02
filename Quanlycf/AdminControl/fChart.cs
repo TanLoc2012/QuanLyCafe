@@ -56,8 +56,8 @@ namespace Quanlycf
             if (context)
             {
                 //tbll.Columns[0].DataType = 
-                CountOrderChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-                TotalMoneyChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+                CountOrderChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+                TotalMoneyChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
             }
             else
             {
@@ -92,34 +92,39 @@ namespace Quanlycf
         private void Draw_Click(object sender, EventArgs e)
         {
             selected = ChooseItem.SelectedItem.ToString();
-            DateTime temp = TimeChart.Value.Date;
+
             switch (selected)
             {
-                case "Default":
+                case "Mặc định":
                     MessageBox.Show("Biểu đồ đang hiển thị chế độ mặc định. Nếu thời gian không hợp lệ biểu đồ sẽ không hiển thị. Vui lòng kiểm tra lại", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
                 case "Month":
-                    // Biểu đồ được chia thành các tuần trong tháng
-                    start = new DateTime(temp.Year, temp.Month, 1);
-                    end = start.AddMonths(1);
-                    string sql = " SELECT MONTH([dbo].[tblOrders].ngay_ban) AS date, COUNT(*) AS tong_don, SUM([dbo].[tblOrders].total_money) AS tong_tien"
-                           + " FROM[dbo].[tblOrders]"
-                           + " WHERE[dbo].[tblOrders].ngay_ban >= '" + start.Date.ToString("yyyy/MM/dd") + "' AND[dbo].[tblOrders].ngay_ban <= '" + end.ToString("yyyy/MM/dd") + "'"
-                           + " GROUP BY MONTH([dbo].[tblOrders].ngay_ban);";
-                    updateChart(sql, true);
-                    MessageBox.Show("Cập nhật thành công!", "message", MessageBoxButtons.OK);
-                    break;
-                case "Year":
                     // Biểu đồ được chia thành các tháng trong năm
 
-                    start = new DateTime(temp.Year, 1, 1);
+                    start = new DateTime(start.Year, 1, 1);
                     end = start.AddYears(1);
-                    sql = " SELECT YEAR([dbo].[tblOrders].ngay_ban) AS date, COUNT(*) AS tong_don, SUM([dbo].[tblOrders].total_money) AS tong_tien"
-                       + " FROM[dbo].[tblOrders]"
-                       + " WHERE[dbo].[tblOrders].ngay_ban >= '" + start.Date.ToString("yyyy/MM/dd") + "' AND[dbo].[tblOrders].ngay_ban <= '" + end.ToString("yyyy/MM/dd") + "'"
-                       + " GROUP BY YEAR([dbo].[tblOrders].ngay_ban);";
+                    end = end.AddDays(-1);
+                    string sql = "SELECT DATENAME(month, [dbo].[tblOrders].ngay_ban) AS date, COUNT(*) AS tong_don, SUM([dbo].[tblOrders].total_money) AS tong_tien "
+                               + "FROM [dbo].[tblOrders]"
+                               + "WHERE [dbo].[tblOrders].ngay_ban >= '" + start.Date.ToString("yyyy/MM/dd") + "' AND[dbo].[tblOrders].ngay_ban <= '" + end.ToString("yyyy/MM/dd") + "'"
+                               + "GROUP BY DATENAME(month, [dbo].[tblOrders].ngay_ban);";
                     updateChart(sql, true);
                     MessageBox.Show("Cập nhật thành công", "message", MessageBoxButtons.OK);
+                    Title.Text = "Thống kê hoạt động theo tháng từ " + start.Date.ToString("dd/MM/yyyy") + " - " + end.Date.ToString("dd/MM/yyyy");
+                    break;
+                case "Quarter":
+                    start = new DateTime(start.Year, 1, 1);
+                    end = start.AddYears(1);
+                    end = end.AddDays(-1);
+                    sql = "SELECT CONVERT(varchar(1), DATEPART(QUARTER, [dbo].[tblOrders].ngay_ban)) AS date, COUNT(*) AS tong_don, SUM([dbo].[tblOrders].total_money) AS tong_tien "
+                        + "FROM [dbo].[tblOrders] "
+                        + "WHERE [dbo].[tblOrders].ngay_ban >= '" + start.Date.ToString("yyyy/MM/dd") + "' AND[dbo].[tblOrders].ngay_ban <= '" + end.ToString("yyyy/MM/dd") + "'"
+                        + "GROUP BY CONVERT(varchar(1), DATEPART(QUARTER, [dbo].[tblOrders].ngay_ban));";
+
+
+                    updateChart(sql, true);
+                    MessageBox.Show("Cập nhật thành công", "message", MessageBoxButtons.OK);
+                    Title.Text = "Thống kê hoạt động theo quý từ " + start.Date.ToString("dd/MM/yyyy") + " - " + end.Date.ToString("dd/MM/yyyy");
                     break;
             }
         }

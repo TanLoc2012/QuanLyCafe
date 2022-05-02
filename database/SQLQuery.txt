@@ -121,19 +121,3 @@ GROUP BY MONTH([dbo].[tblOrders].ngay_ban);
 
 
 UPDATE [dbo].[tblUser] SET deleted = 0 WHERE id = 1;
-
-SELECT DATENAME(week, [dbo].[tblOrders].ngay_ban) AS date, COUNT(*) AS tong_don, SUM([dbo].[tblOrders].total_money) AS tong_tien
-FROM[dbo].[tblOrders]
-WHERE[dbo].[tblOrders].ngay_ban >=  '2022/04/23' AND [dbo].[tblOrders].ngay_ban <= '2022/05/01'
-GROUP BY DATENAME(week, [dbo].[tblOrders].ngay_ban);
-
-
-SELECT DATENAME(month, [dbo].[tblOrders].ngay_ban) AS date, COUNT(*) AS tong_don, SUM([dbo].[tblOrders].total_money) AS tong_tien
-FROM[dbo].[tblOrders]
-WHERE[dbo].[tblOrders].ngay_ban >=  '2022/04/01' AND [dbo].[tblOrders].ngay_ban <= '2022/05/31'
-GROUP BY DATENAME(month, [dbo].[tblOrders].ngay_ban);
-
-SELECT DATEPART(week, [dbo].[tblOrders].ngay_ban) AS date, COUNT(*) AS tong_don, SUM([dbo].[tblOrders].total_money) AS tong_tien
-FROM[dbo].[tblOrders]
-WHERE[dbo].[tblOrders].ngay_ban >=  '2022/04/01' AND [dbo].[tblOrders].ngay_ban <= '2022/05/01'
-GROUP BY DATEPART(week, [dbo].[tblOrders].ngay_ban);

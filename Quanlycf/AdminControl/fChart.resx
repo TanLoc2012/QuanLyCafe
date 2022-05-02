@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>- Thống kê tại một khoảng thời gian (Mặc định)
+=&gt; Vui lòng dùng bộ lọc thời gian ở phần quản lý hóa đơn.
+- Thống kê theo tháng: Chọn lọc theo Month
+- Thống kê theo quý   : Chọn lọc theo Quarter
+* Lưu ý, thống kê theo tháng và quý hệ thống sẽ chọn năm mặc định theo bộ lọc bên ngoài ở phần quản lý hóa đơn</value>
+  </data>
 </root>

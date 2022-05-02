@@ -427,7 +427,7 @@
             this.ClientSize = new System.Drawing.Size(1014, 647);
             this.Controls.Add(this.panel1);
             this.Name = "fEditAdmin";
-            this.Text = "fEditAdmin";
+            this.Text = "Chỉnh sửa thông tin nhân viên";
             this.Load += new System.EventHandler(this.fEditAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

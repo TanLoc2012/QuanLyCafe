@@ -41,18 +41,18 @@
             this.dateTimeBox = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.jobBox = new System.Windows.Forms.ListBox();
+            this.tblRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.managerCoffeeDataSet1 = new Quanlycf.ManagerCoffeeDataSet1();
             this.label2 = new System.Windows.Forms.Label();
             this.femaleBox = new System.Windows.Forms.RadioButton();
             this.maleBox = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nameBox = new System.Windows.Forms.TextBox();
-            this.managerCoffeeDataSet1 = new Quanlycf.ManagerCoffeeDataSet1();
-            this.tblRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblRoleTableAdapter = new Quanlycf.ManagerCoffeeDataSet1TableAdapters.tblRoleTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRoleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -186,6 +186,16 @@
             this.jobBox.TabIndex = 6;
             this.jobBox.ValueMember = "id";
             // 
+            // tblRoleBindingSource
+            // 
+            this.tblRoleBindingSource.DataMember = "tblRole";
+            this.tblRoleBindingSource.DataSource = this.managerCoffeeDataSet1;
+            // 
+            // managerCoffeeDataSet1
+            // 
+            this.managerCoffeeDataSet1.DataSetName = "ManagerCoffeeDataSet1";
+            this.managerCoffeeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -248,16 +258,6 @@
             this.nameBox.Size = new System.Drawing.Size(479, 41);
             this.nameBox.TabIndex = 1;
             // 
-            // managerCoffeeDataSet1
-            // 
-            this.managerCoffeeDataSet1.DataSetName = "ManagerCoffeeDataSet1";
-            this.managerCoffeeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblRoleBindingSource
-            // 
-            this.tblRoleBindingSource.DataMember = "tblRole";
-            this.tblRoleBindingSource.DataSource = this.managerCoffeeDataSet1;
-            // 
             // tblRoleTableAdapter
             // 
             this.tblRoleTableAdapter.ClearBeforeFill = true;
@@ -269,12 +269,12 @@
             this.ClientSize = new System.Drawing.Size(1122, 650);
             this.Controls.Add(this.panel1);
             this.Name = "fAddNV";
-            this.Text = "fAddNV";
+            this.Text = "Biểu mẫu thêm nhân viên";
             this.Load += new System.EventHandler(this.fAddNV_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRoleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }

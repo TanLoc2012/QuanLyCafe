@@ -93,7 +93,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startTime);
             this.Name = "fFilter";
-            this.Text = "fFilter";
+            this.Text = "Bộ lọc";
             this.ResumeLayout(false);
             this.PerformLayout();
 

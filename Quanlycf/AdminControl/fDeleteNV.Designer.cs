@@ -100,7 +100,7 @@
             this.Controls.Add(this.IDbox);
             this.Controls.Add(this.label10);
             this.Name = "fDeleteNV";
-            this.Text = "fDeleteNV";
+            this.Text = "Xóa nhân viên";
             this.ResumeLayout(false);
             this.PerformLayout();
 
