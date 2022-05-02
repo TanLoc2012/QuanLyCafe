@@ -99,10 +99,10 @@
     <Compile Include="AdminControl\fChart.Designer.cs">
       <DependentUpon>fChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="fViewDetail.cs">
+    <Compile Include="AdminControl\fViewDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fViewDetail.Designer.cs">
+    <Compile Include="AdminControl\fViewDetail.Designer.cs">
       <DependentUpon>fViewDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagerCoffeeDataSet1.Designer.cs">
@@ -162,7 +162,7 @@
     <EmbeddedResource Include="fStaff.resx">
       <DependentUpon>fStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fViewDetail.resx">
+    <EmbeddedResource Include="AdminControl\fViewDetail.resx">
       <DependentUpon>fViewDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
