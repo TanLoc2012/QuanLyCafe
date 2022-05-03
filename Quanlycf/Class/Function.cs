@@ -42,6 +42,33 @@ namespace Quanlycf.Class
                 Con = null;
             }
         }
+        public static bool updateData(string query)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = Con;
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                switch (sqlEx.Number)
+                {
+                    case 273:
+                        MessageBox.Show("Các giá trị nhập vào không hợp lệ, vui lòng kiểm tra lại!");
+                        break;
+
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            MessageBox.Show("Saved successfully!", "Message", MessageBoxButtons.OK);
+            return true;
+        }
         public static bool interactQuery(string query)
         {
             try

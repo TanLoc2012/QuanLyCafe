@@ -82,7 +82,7 @@ namespace Quanlycf
             this.tàiKhoảnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,26 +207,29 @@ namespace Quanlycf
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Location = new System.Drawing.Point(12, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(788, 418);
+            this.panel1.Size = new System.Drawing.Size(788, 453);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // buttonComplete
             // 
-            this.buttonComplete.Location = new System.Drawing.Point(225, 383);
+            this.buttonComplete.Location = new System.Drawing.Point(237, 420);
             this.buttonComplete.Name = "buttonComplete";
-            this.buttonComplete.Size = new System.Drawing.Size(75, 23);
+            this.buttonComplete.Size = new System.Drawing.Size(83, 26);
             this.buttonComplete.TabIndex = 7;
             this.buttonComplete.Text = "Hoàn thành";
             this.buttonComplete.UseVisualStyleBackColor = true;
+            this.buttonComplete.Click += new System.EventHandler(this.buttonComplete_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(323, 383);
+            this.buttonDelete.Location = new System.Drawing.Point(326, 420);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 21);
+            this.buttonDelete.Size = new System.Drawing.Size(77, 26);
             this.buttonDelete.TabIndex = 6;
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // dvgOrderDetail
             // 
@@ -241,9 +244,9 @@ namespace Quanlycf
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 445);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 523);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 5);
+            this.dataGridView1.Size = new System.Drawing.Size(804, 0);
             this.dataGridView1.TabIndex = 26;
             // 
             // panel3
@@ -255,7 +258,7 @@ namespace Quanlycf
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 445);
+            this.panel3.Size = new System.Drawing.Size(804, 523);
             this.panel3.TabIndex = 27;
             // 
             // label1
@@ -276,7 +279,7 @@ namespace Quanlycf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(804, 473);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel3);
             this.Name = "fStaff";
