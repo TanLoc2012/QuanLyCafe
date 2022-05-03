@@ -28,7 +28,7 @@ namespace Quanlycf
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            if (Login(username, password) == 1 || Login(username, password) == 2)
+            if (Login(username, password) == 1 )
             {
                 fStaff f = new fStaff();
                 this.Hide();
@@ -36,7 +36,14 @@ namespace Quanlycf
                 Application.Exit();
 
             }
-            else
+            else if(Login(username, password) == 2)
+            {
+                fAdmin f = new fAdmin();
+                this.Hide();
+                f.ShowDialog();
+                Application.Exit();
+            }
+            else 
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
