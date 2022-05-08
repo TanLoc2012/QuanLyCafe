@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data; 
 namespace Quanlycf.Staff
 {
     public class ProductDAO
@@ -19,5 +19,42 @@ namespace Quanlycf.Staff
         {
 
         }
+        public List<Product> GetFoodByCategoryID(int id)
+        {
+            List<Product> list = new List<Product>();
+
+            string query = "select * from dbo.tblProduct where category_id = " + id;
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Product food = new Product(item);
+                list.Add(food);
+            }
+
+            return list;
+        }
+
+        public List<Product> GetListFood()
+        {
+            List<Product> list = new List<Product>();
+
+            string query = "select * from dbo.tblProduct";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Product food = new Product(item);
+                list.Add(food);
+            }
+
+            return list;
+        }
+
+        
+
+        
     }
 }
