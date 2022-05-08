@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Quanlycf.Class;
+using Quanlycf.Staff;
+using System.Globalization; 
 namespace Quanlycf
 {
     public partial class fStaff : Form
@@ -21,6 +23,7 @@ namespace Quanlycf
             InitializeComponent();
             Class.Function.Connect();
             LoadOrder();
+            LoadCategory();
             startTime = DateTime.Now;
             endTime = startTime;
             Class.Function.Disconnect();
@@ -185,11 +188,45 @@ namespace Quanlycf
 
             }
         }
-            #endregion
 
-            #region Event
+        void LoadCategory()
+        {
+            List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
+            comboBox1_ChooseCategory.DataSource = listCategory;
+            comboBox1_ChooseCategory.DisplayMember = "Name";
+        }
 
-            private void txtStaffID_TextChanged(object sender, EventArgs e)
+        void LoadFoodListByCategoryID(int id)
+        {
+            List<Product> listFood = ProductDAO.Instance.GetFoodByCategoryID(id);
+            ComboBox_MonAn.DataSource = listFood;
+            ComboBox_MonAn.DisplayMember = "Name";
+        }
+        void ShowBill()
+        {
+            lsvBill.Items.Clear();
+            List<Quanlycf.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable();
+            float totalPrice = 0;
+            foreach (Quanlycf.Menu item in listBillInfo)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Count.ToString());
+                lsvItem.SubItems.Add(item.Price.ToString());
+                lsvItem.SubItems.Add(item.TotalPrice.ToString());
+                totalPrice += item.TotalPrice;
+                lsvBill.Items.Add(lsvItem);
+            }
+            CultureInfo culture = new CultureInfo("vi-VN");
+
+            //Thread.CurrentThread.CurrentCulture = culture;
+
+            txbTotalPrice.Text = totalPrice.ToString("c", culture);
+        }
+        #endregion
+
+        #region Event
+
+        private void txtStaffID_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -260,7 +297,7 @@ namespace Quanlycf
         private void fStaff_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'managerCoffeeDataSet.tblOrders' table. You can move, or remove it, as needed.
-            this.tblOrdersTableAdapter.Fill(this.managerCoffeeDataSet.tblOrders);
+           // this.tblOrdersTableAdapter.Fill(this.managerCoffeeDataSet.tblOrders);
 
         }
 
@@ -299,6 +336,60 @@ namespace Quanlycf
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e) // Them mon
+        {
+            // int idBill = OrderDAO.Instance.GetUncheckBillIDByTableID(0);
+            int foodID = (ComboBox_MonAn.SelectedItem as Product).ID;
+            int count = (int)SL_monAn_upDown.Value;
+            OrderDAO.Instance.InsertBill();
+            OrderDetailDAO.Instance.InsertBillInfo(1, foodID, count);
+            ShowBill();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        { // Chọn loai mon an 
+
+            int id = 0;
+
+            ComboBox cb = sender as ComboBox;
+
+            if (cb.SelectedItem == null)
+                return;
+
+            Category selected = cb.SelectedItem as Category;
+            id = selected.ID;
+
+            LoadFoodListByCategoryID(id);
+
+        }
+
+        private void buttonThanhtoan_Click(object sender, EventArgs e)
+        {
+            //Table table = lsvBill.Tag as Table;
+
+          int idBill = 1;
+
+
+            double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0]);
+
+
+            if (idBill != -1)
+            {
+                if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá\n=> {1} - ({1} / 100) x {2} = {3}", "test Table.name", totalPrice, 0, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    OrderDAO.Instance.CheckOut(idBill, 0, (float)totalPrice);
+                    ShowBill();
+
+                    // LoadTable();
+                }
+            }
         }
     }
 
