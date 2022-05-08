@@ -6,38 +6,59 @@ using System.Threading.Tasks;
 using System.Data;
 namespace Quanlycf.Staff
 {
-    class OrderDetailDAO
+
+    public class OrderDAO
     {
-        private static OrderDetailDAO instance;
-
-        public static OrderDetailDAO Instance
+        private static OrderDAO instance;
+        public static OrderDAO Instance
         {
-            get { if (instance == null) instance = new OrderDetailDAO(); return OrderDetailDAO.instance; }
-            private set { OrderDetailDAO.instance = value; }
+            get { if (instance == null) instance = new OrderDAO(); return OrderDAO.instance; }
+            private set { OrderDAO.instance = value; }
+
         }
-        private OrderDetailDAO() { }
-       
-        public List<OrderDetail> GetListBillInfo(int id)
+        public static int OrderWidth = 70;
+        public static int OrderHeight = 20;
+        private OrderDAO()
         {
-            List<OrderDetail> listBillInfo = new List<OrderDetail>();
 
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tblOrderDetail WHERE @order_id = " + id);
+        }
+        public void CheckOut(int id, int discount, float totalPrice)
+        {
+            string query = "UPDATE dbo.Bill SET dateCheckOut = GETDATE(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " WHERE id = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
+        public void InsertBill()
+        {
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill", new object[] {});
+        }
 
-            foreach (DataRow item in data.Rows)
+        public DataTable GetBillListByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+        }
+
+        public DataTable GetBillListByDateAndPage(DateTime checkIn, DateTime checkOut, int pageNum)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDateAndPage @checkIn , @checkOut , @page", new object[] { checkIn, checkOut, pageNum });
+        }
+
+        public int GetNumBillListByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("exec USP_GetNumBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+        }
+
+        public int GetMaxIDBill()
+        {
+            try
             {
-                OrderDetail info = new OrderDetail(item);
-                listBillInfo.Add(info);
+                return (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(id) FROM dbo.Bill");
             }
-
-            return listBillInfo;
+            catch
+            {
+                return 1;
+            }
         }
 
-        public void InsertBillInfo(int idBill, int idFood, int count)
-        {
-            DataProvider.Instance.ExecuteNonQuery("USP_InsertBillInfo @order_id , @category_id , @num", new object[] { idBill, idFood, count });
-        }
+
     }
-
-
 }
-
