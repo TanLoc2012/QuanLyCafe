@@ -12,7 +12,7 @@ namespace Quanlycf
 {
     public partial class fStaff : Form
     {
-        static DataTable tblCL;
+         DataTable tblCL;
         static DataTable tblProduct;
         static DataTable tblAddProduct;
         int ID_order = -1; // lưu id của order được chọn
@@ -22,21 +22,28 @@ namespace Quanlycf
         long total_money_new = 0;
         public fStaff()
         {
+            
             InitializeComponent();
-            Class.Function.Connect();
+         
             LoadOrder();
             AddOrder();
             startTime = DateTime.Now;
             endTime = startTime;
-            Class.Function.Disconnect();
+ 
         }
         #region Method
 
         void LoadOrder()
         {
+            if (tblCL!= null)
+            tblCL.Clear();
+            dvgOrder.Columns.Clear();
+            dvgOrder.Refresh();
+            Class.Function.Connect();
             string sql = "SELECT * FROM dbo.tblOrders" + "\n" +
                 "WHERE statusOrder = 0 OR statusOrder=1";
             tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            Class.Function.Disconnect();
             if(tblCL.Rows.Count>0)
 
                 ID_Order_max = (int)tblCL.Rows[tblCL.Rows.Count - 1][0];
@@ -103,6 +110,7 @@ namespace Quanlycf
       
         public void ShowOrderDetail(int id)
         {
+            MessageBox.Show(id.ToString());
             Class.Function.Connect();
             string sqlOrderDetail = "SELECT tblOrderDetail.*, tblProduct.title" + "\n" +
             "FROM tblOrderDetail LEFT JOIN tblProduct on tblProduct.id = tblOrderDetail.product_id" + "\n" +
@@ -169,22 +177,9 @@ namespace Quanlycf
             Class.Function.Connect();
             Class.Function.updateData(sql_delete);
             Class.Function.Disconnect();
-            CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dvgOrder.DataSource];
-            currencyManager1.SuspendBinding();
 
-
-            for (int i = 0; i < tblCL.Rows.Count; i++)
-            {
-                if ((int)tblCL.Rows[i][0] == id)
-                {
-
-                    dvgOrder.Rows[i].Visible = false;
-                    currencyManager1.ResumeBinding();
-                    dvgOrderDetail.DataSource = null;
-                    return;
-                }
-
-            }
+           
+            LoadOrder();
         }
         #endregion
         //phần bên phải
@@ -206,44 +201,71 @@ namespace Quanlycf
             new_row[2] = price_product;
             new_row[3] = num;
             tblAddProduct.Rows.Add(new_row);
-            //MessageBox.Show(id_product.ToString());
+   
         }
         public void CreatOrderDetail()
         {
 
         }
+        public void DeleteProductInNewOrder(int id)   
+        {
+            CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dvgAddProduct.DataSource];
+            currencyManager1.SuspendBinding();
+
+
+            for (int i = 0; i < tblAddProduct.Rows.Count; i++)
+            {
+                if ((int)tblCL.Rows[i][0] == id)
+                {
+
+                    dvgAddProduct.Rows[i].Visible = false;
+                    currencyManager1.ResumeBinding();
+                    return;
+                }
+
+            }
+        }
         public void AddOrderToSql()
         {
-            //if(tblAddProduct.Rows.Count<1)
-            //{
-            //    MessageBox.Show("chưua có món ăn được thêm");
-            //    return;
-            //}
-            //Class.Function.Connect();
-            //int id_order_new = ID_Order_max + 1;
+            if (tblAddProduct.Rows.Count < 1)
+            {
+                MessageBox.Show("chưua có món ăn được thêm");
+                return;
+            }
+            Class.Function.Connect();
+            
 
-            //string sql = "INSERT INTO dbo.tblOrders(id_nv, ngay_ban, statusOrder, total_money)"
-            //        + "VALUES(1, \'20220421 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
-            ////Class.Function.updateData(sql);
-            //for (int i = 0; i < tblAddProduct.Rows.Count; i++)
-            //{
-            //    MessageBox.Show(tblAddProduct.Rows[i][0].ToString());
-            //    int id_product = (int)tblAddProduct.Rows[i][0];
-            //    int price_product = (int)tblAddProduct.Rows[i][2];
-            //    int num_product = (int)tblAddProduct.Rows[i][3];
-            //    string sql_orderdetail = "INSERT INTO dbo.tblOrderDetail( order_id, product_id, price,num, total_money) \n"
-            //    + "VALUES(" + id_order_new.ToString() + "," + id_product.ToString() + ","
-            //        + price_product.ToString() + "," + num_product.ToString() + "," +
-            //        (price_product * num_product).ToString() + ")";
-            //    Class.Function.updateData(sql_orderdetail);
-            //}
-            //Class.Function.Disconnect();
-            //tblAddProduct.Clear();
+            string sql = "INSERT INTO dbo.tblOrders(id_nv, ngay_ban, statusOrder, total_money)"
+                    + "VALUES(1, \'20220421 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
+            Class.Function.updateData(sql);
 
-            //ID_Order_max++;
+            string sql_getID_order = "SELECT MAX(id)" +
+                                    "FROM tblOrders";
+                                 //   "WHERE statusOrder = 0";
+            DataTable tblMaxID = Class.Function.GetDataToTable(sql_getID_order);
+            int id_order_new=Int32.Parse(tblMaxID.Rows[0][0].ToString());
 
-            //total_money_new = 0;  //trả về 0 
-            tblCL.Clear();
+
+
+            for (int i = 0; i < tblAddProduct.Rows.Count; i++)
+            {
+                
+                int id_product = Int32.Parse(tblAddProduct.Rows[i][0].ToString());
+                int price_product = Int32.Parse(tblAddProduct.Rows[i][2].ToString());
+                int num_product = Int32.Parse(tblAddProduct.Rows[i][3].ToString());
+                string sql_orderdetail = "INSERT INTO dbo.tblOrderDetail( order_id, product_id, price,num, total_money) \n"
+                + "VALUES(" + id_order_new.ToString() + "," + id_product.ToString() + ","
+                    + price_product.ToString() + "," + num_product.ToString() + "," +
+                    (price_product * num_product).ToString() + ")";
+                Class.Function.updateData(sql_orderdetail);
+            }
+            Class.Function.Disconnect();
+            tblAddProduct.Clear();
+
+            ID_Order_max++;
+
+            total_money_new = 0;  //trả về 0 
+            
             LoadOrder();
         }
         public void AddOrder()
@@ -269,8 +291,16 @@ namespace Quanlycf
 
             button_addProduct.Tag = (Action)AddOrderDetail;
             buttonThanhtoan.Tag = (Action)AddOrderToSql;
-            
 
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+
+            btn.HeaderText = "";
+            btn.Text = "Xóa";
+
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            btn.Tag = (Action<int>)DeleteProductInNewOrder;
+            dvgAddProduct.Columns.Add(btn);
         }
 
       
