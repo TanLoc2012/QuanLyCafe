@@ -13,14 +13,19 @@ namespace Quanlycf
     public partial class fStaff : Form
     {
         static DataTable tblCL;
-        int ID_order = -1;
+        static DataTable tblProduct;
+        static DataTable tblAddProduct;
+        int ID_order = -1; // lưu id của order được chọn
+        int ID_Order_max = 0;
         public DateTime startTime;
         public DateTime endTime;
+        long total_money_new = 0;
         public fStaff()
         {
             InitializeComponent();
             Class.Function.Connect();
             LoadOrder();
+            AddOrder();
             startTime = DateTime.Now;
             endTime = startTime;
             Class.Function.Disconnect();
@@ -32,6 +37,10 @@ namespace Quanlycf
             string sql = "SELECT * FROM dbo.tblOrders" + "\n" +
                 "WHERE statusOrder = 0 OR statusOrder=1";
             tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            if(tblCL.Rows.Count>0)
+
+                ID_Order_max = (int)tblCL.Rows[tblCL.Rows.Count - 1][0];
+
 
             tblCL.Columns.Add("status_str", typeof(String));
 
@@ -91,7 +100,7 @@ namespace Quanlycf
 
         }
 
-
+      
         public void ShowOrderDetail(int id)
         {
             Class.Function.Connect();
@@ -177,8 +186,94 @@ namespace Quanlycf
 
             }
         }
-
         #endregion
+        //phần bên phải
+        public void AddOrderDetail()
+        {
+
+            
+
+            int index = combo_MonAn.SelectedIndex;
+            int id_product = (int)tblProduct.Rows[index][0];
+            string name_product = tblProduct.Rows[index][1].ToString();
+            long price_product = (int)tblProduct.Rows[index][2];
+            int num = (int)numerSoLuong.Value;
+
+            total_money_new += num * price_product;
+            DataRow new_row = tblAddProduct.NewRow();
+            new_row[0] = id_product;
+            new_row[1] = name_product.ToString();
+            new_row[2] = price_product;
+            new_row[3] = num;
+            tblAddProduct.Rows.Add(new_row);
+            //MessageBox.Show(id_product.ToString());
+        }
+        public void CreatOrderDetail()
+        {
+
+        }
+        public void AddOrderToSql()
+        {
+            //if(tblAddProduct.Rows.Count<1)
+            //{
+            //    MessageBox.Show("chưua có món ăn được thêm");
+            //    return;
+            //}
+            //Class.Function.Connect();
+            //int id_order_new = ID_Order_max + 1;
+
+            //string sql = "INSERT INTO dbo.tblOrders(id_nv, ngay_ban, statusOrder, total_money)"
+            //        + "VALUES(1, \'20220421 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
+            ////Class.Function.updateData(sql);
+            //for (int i = 0; i < tblAddProduct.Rows.Count; i++)
+            //{
+            //    MessageBox.Show(tblAddProduct.Rows[i][0].ToString());
+            //    int id_product = (int)tblAddProduct.Rows[i][0];
+            //    int price_product = (int)tblAddProduct.Rows[i][2];
+            //    int num_product = (int)tblAddProduct.Rows[i][3];
+            //    string sql_orderdetail = "INSERT INTO dbo.tblOrderDetail( order_id, product_id, price,num, total_money) \n"
+            //    + "VALUES(" + id_order_new.ToString() + "," + id_product.ToString() + ","
+            //        + price_product.ToString() + "," + num_product.ToString() + "," +
+            //        (price_product * num_product).ToString() + ")";
+            //    Class.Function.updateData(sql_orderdetail);
+            //}
+            //Class.Function.Disconnect();
+            //tblAddProduct.Clear();
+
+            //ID_Order_max++;
+
+            //total_money_new = 0;  //trả về 0 
+            tblCL.Clear();
+            LoadOrder();
+        }
+        public void AddOrder()
+        {
+            
+            tblAddProduct = new DataTable();
+            tblAddProduct.Columns.Add("id");
+            tblAddProduct.Columns.Add("name");
+
+
+
+            tblAddProduct.Columns.Add("price");
+            tblAddProduct.Columns.Add("number");
+            dvgAddProduct.DataSource = tblAddProduct;
+
+            numerSoLuong.Minimum = 1;
+
+            Class.Function.Connect();
+            string sql_product = "SELECT id,title,price FROM dbo.tblProduct";
+            tblProduct = Class.Function.GetDataToTable(sql_product);
+            combo_MonAn.DataSource = tblProduct;
+            combo_MonAn.DisplayMember = "title";
+
+            button_addProduct.Tag = (Action)AddOrderDetail;
+            buttonThanhtoan.Tag = (Action)AddOrderToSql;
+            
+
+        }
+
+      
 
         #region Event
 
@@ -293,6 +388,27 @@ namespace Quanlycf
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Run(new fAdmin());
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void button_addProduct_Click(object sender, EventArgs e)
+        {
+            AddOrderDetail();
+        }
+
+        private void buttonThanhtoan_Click(object sender, EventArgs e)
+        {
+            AddOrderToSql();
+        }
+
+        private void numerSoLuong_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

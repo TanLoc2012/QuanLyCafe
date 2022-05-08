@@ -35,9 +35,9 @@ namespace Quanlycf
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.numerSoLuong = new System.Windows.Forms.NumericUpDown();
+            this.button_addProduct = new System.Windows.Forms.Button();
+            this.combo_MonAn = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dvgAddProduct = new System.Windows.Forms.DataGridView();
             this.dvgOrder = new System.Windows.Forms.DataGridView();
@@ -53,7 +53,7 @@ namespace Quanlycf
             this.label1 = new System.Windows.Forms.Label();
             this.tblOrdersTableAdapter = new Quanlycf.ManagerCoffeeDataSetTableAdapters.tblOrdersTableAdapter();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numerSoLuong)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAddProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgOrder)).BeginInit();
@@ -84,14 +84,15 @@ namespace Quanlycf
             this.buttonThanhtoan.TabIndex = 0;
             this.buttonThanhtoan.Text = "Thanh Toán";
             this.buttonThanhtoan.UseVisualStyleBackColor = true;
+            this.buttonThanhtoan.Click += new System.EventHandler(this.buttonThanhtoan_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel5.Controls.Add(this.buttonThanhtoan);
-            this.panel5.Location = new System.Drawing.Point(491, 344);
+            this.panel5.Location = new System.Drawing.Point(420, 344);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(289, 50);
+            this.panel5.Size = new System.Drawing.Size(360, 50);
             this.panel5.TabIndex = 2;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -105,56 +106,59 @@ namespace Quanlycf
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(3, 5);
+            this.textBox2.Location = new System.Drawing.Point(0, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(70, 20);
+            this.textBox2.Size = new System.Drawing.Size(73, 20);
             this.textBox2.TabIndex = 3;
             this.textBox2.Text = "Món ăn";
             // 
-            // numericUpDown1
+            // numerSoLuong
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(79, 31);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.numerSoLuong.Location = new System.Drawing.Point(79, 31);
+            this.numerSoLuong.Name = "numerSoLuong";
+            this.numerSoLuong.Size = new System.Drawing.Size(120, 20);
+            this.numerSoLuong.TabIndex = 2;
+            this.numerSoLuong.ValueChanged += new System.EventHandler(this.numerSoLuong_ValueChanged);
             // 
-            // button1
+            // button_addProduct
             // 
-            this.button1.Location = new System.Drawing.Point(205, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 56);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Thêm món";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_addProduct.Location = new System.Drawing.Point(205, 5);
+            this.button_addProduct.Name = "button_addProduct";
+            this.button_addProduct.Size = new System.Drawing.Size(75, 56);
+            this.button_addProduct.TabIndex = 1;
+            this.button_addProduct.Text = "Thêm món";
+            this.button_addProduct.UseVisualStyleBackColor = true;
+            this.button_addProduct.Click += new System.EventHandler(this.button_addProduct_Click);
             // 
-            // comboBox1
+            // combo_MonAn
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 21);
-            this.comboBox1.TabIndex = 0;
+            this.combo_MonAn.FormattingEnabled = true;
+            this.combo_MonAn.Location = new System.Drawing.Point(79, 4);
+            this.combo_MonAn.Name = "combo_MonAn";
+            this.combo_MonAn.Size = new System.Drawing.Size(120, 21);
+            this.combo_MonAn.TabIndex = 0;
+            this.combo_MonAn.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel6.Controls.Add(this.textBox3);
             this.panel6.Controls.Add(this.textBox2);
-            this.panel6.Controls.Add(this.numericUpDown1);
-            this.panel6.Controls.Add(this.button1);
-            this.panel6.Controls.Add(this.comboBox1);
-            this.panel6.Location = new System.Drawing.Point(491, 3);
+            this.panel6.Controls.Add(this.numerSoLuong);
+            this.panel6.Controls.Add(this.button_addProduct);
+            this.panel6.Controls.Add(this.combo_MonAn);
+            this.panel6.Location = new System.Drawing.Point(420, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(289, 65);
+            this.panel6.Size = new System.Drawing.Size(360, 65);
             this.panel6.TabIndex = 3;
             // 
             // dvgAddProduct
             // 
             this.dvgAddProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgAddProduct.Location = new System.Drawing.Point(491, 74);
+            this.dvgAddProduct.Location = new System.Drawing.Point(420, 74);
             this.dvgAddProduct.Name = "dvgAddProduct";
             this.dvgAddProduct.RowHeadersWidth = 51;
-            this.dvgAddProduct.Size = new System.Drawing.Size(289, 267);
+            this.dvgAddProduct.Size = new System.Drawing.Size(360, 267);
             this.dvgAddProduct.TabIndex = 4;
             this.dvgAddProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgAddProduct_CellContentClick);
             // 
@@ -273,7 +277,7 @@ namespace Quanlycf
             this.Text = "Phần mềm quản lý Cafe";
             this.Load += new System.EventHandler(this.fStaff_Load);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numerSoLuong)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAddProduct)).EndInit();
@@ -296,9 +300,9 @@ namespace Quanlycf
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown numerSoLuong;
+        private System.Windows.Forms.Button button_addProduct;
+        private System.Windows.Forms.ComboBox combo_MonAn;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.BindingSource tblOrdersBindingSource;
         private System.Windows.Forms.DataGridView dvgAddProduct;
