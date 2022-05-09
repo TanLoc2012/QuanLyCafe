@@ -28,7 +28,8 @@ CREATE TABLE [dbo].[tblUser] (
 	sex INT NOT NULL,
 	dob DATETIME NOT NULL,  
 	addressU NVARCHAR(50) NOT NULL,
-	phone NVARCHAR(50) NOT NULL
+	phone NVARCHAR(50) NOT NULL,
+	username NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE [dbo].[tblOrders] (
@@ -57,12 +58,35 @@ VALUES('Admin')
 INSERT INTO tblRole(role_name)
 VALUES('Manager')
 
+
+/* Thêm attribute username vào tblUser*/
+ALTER TABLE tblUser
+ADD username nvarchar(50) 
+
+create proc authentication
+@username nvarchar(50),
+@passwordNV nvarchar(50)
+as
+begin
+    if exists (select * from tblUser where username = @username and passwordNV = @passwordNV and role_id = 1)
+        select 1 as code
+    else if exists (select * from tblUser where username = @username and passwordNV = @passwordNV and role_id = 2)
+        select 2 as code
+    else select 3 as code
+end
+
+
 INSERT INTO [dbo].[tblCategory] VALUES ('Do uong');
 
 INSERT INTO [dbo].[tblProduct] VALUES (1,'Cafe chon', 50000, 'cak', 'Not for children', 0,0);
 INSERT INTO [dbo].[tblProduct] VALUES (1, 'Tra sua', 20000, 'hihi', 'only couple', 0, 0);
 INSERT INTO [dbo].[tblProduct] VALUES (1, 'Nuoc ep', 15000, 'hoho', 'healthy person',0,0);
 INSERT INTO [dbo].[tblProduct] VALUES (1, 'Cam vat', 14000, 'hehe', 'helthy boy', 0, 0);
+
+INSERT INTO [dbo].[tblUser] VALUES (1,0,'admin','Vu Dang Khoa', 1,'1988-05-22','Tay Ninh','0937811504','vuatrochoiyugioh');
+INSERT INTO [dbo].[tblUser] VALUES (2,0,'admin','Uzumaki Naruto',1,'2002-04-30','Tay Ninh', '0937811504','naruto');
+INSERT INTO [dbo].[tblUser] VALUES (2,0,'admin', 'Uchiha Itachi',1,'2001-5-19','Tp. Ho Chi Minh', '213132121', 'thegioingam');
+INSERT INTO [dbo].[tblUser] VALUES (1,0, 'admin', 'Hoa Diem Thien Vuong', 1, '2002-04-25', 'Tp.Ho Chi Minh', '012313123', 'codon');
 
 INSERT INTO [dbo].[tblOrders] VALUES (4, 25000, 1, '2022/04/23');
 INSERT INTO [dbo].[tblOrders] VALUES (4, 25000, 1, '2022/04/23');
@@ -85,13 +109,11 @@ INSERT INTO [dbo].[tblOrderDetail] VALUES (4,1, 50000,1, 50000);
 
 
 
-INSERT INTO [dbo].[tblRole] VALUES ('22');
-INSERT INTO [dbo].[tblUser] VALUES (1,0,'HOLA','Vu Dang Khoa', 1,'1988-05-22','Tay Ninh','0937811504');
-INSERT INTO [dbo].[tblUser] VALUES (2,1,'HIUHIU','Uzumaki Naruto',1,'2002-04-30','Tay Ninh', '0937811504');
-INSERT INTO [dbo].[tblUser] VALUES (2,0,'HELLO', 'Uchiha Itachi',1,'2001-5-19','Tp. H? Chí Minh', '213132121');
-INSERT INTO [dbo].[tblUser] VALUES (1,0, 'HIHI', 'Hoa Diem Thien Vuong', 1, '2002-04-25', 'Tp.Ho Chi Minh', '012313123');
+
 DBCC CHECKIDENT ([tblCategory], RESEED, 0);
 DBCC CHECKIDENT ([tblUser], RESEED, 0);
+DBCC CHECKIDENT ([tblOrderDetail], RESEED,0);
+DBCC CHECKIDENT ([tblOrders], RESSED,0);
 
 SELECT [dbo].[tblOrders].id, [dbo].[tblOrders].id_nv, [dbo].[tblUser].fullname, [dbo].[tblOrders].total_money, [dbo].[tblOrders].statusOrder, [dbo].[tblOrders].ngay_ban
 FROM [dbo].[tblOrders], [dbo].[tblUser]

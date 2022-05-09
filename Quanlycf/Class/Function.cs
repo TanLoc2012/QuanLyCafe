@@ -16,6 +16,7 @@ namespace Quanlycf.Class
         public static void Connect()
         {
             Con = new SqlConnection();   //Khởi tạo đối tượng
+            //Con.ConnectionString = @"Data Source=DESKTOP-6VUOC5Q\MYSERVER_SQL;Initial Catalog=ManagerCoffee;Integrated Security=True";
             Con.ConnectionString = @"Data Source=DESKTOP-6VUOC5Q\MYSERVER_SQL;Initial Catalog=ManagerCoffee;Integrated Security=True";
             Con.Open();                  //Mở kết nối
             //Kiểm tra kết nối

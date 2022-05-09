@@ -147,6 +147,23 @@ namespace Quanlycf
                 }
                 s += "passwordNV = '" + passBox.Text + "'";
             }
+            if (changeUserName.Checked)
+            {
+                if (userNameBox.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa điền đầy đủ thông tin. Vui lòng kiểm tra lại!", "Missing information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (!landau)
+                {
+                    s += ",";
+                }
+                else
+                {
+                    landau = false;
+                }
+                s += "username = '" + userNameBox.Text + "'";
+            }
             s += " WHERE id = " + IDbox.Text.ToString() + ";";
             Class.Function.Connect();
             Class.Function.updateData(s);
@@ -185,6 +202,7 @@ namespace Quanlycf
                 addressBox.Text = reader["addressU"].ToString();
                 phoneBox.Text = reader["phone"].ToString();
                 passBox.Text = reader["passwordNV"].ToString();
+                userNameBox.Text = reader["username"].ToString();
             }
             else
             {

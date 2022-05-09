@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Quanlycf"
+    "\\Quanlycf",
+    "\\Quanlycf\\AdminControl"
   ],
-  "SelectedNode": "\\Quanlycf\\fAdmin.cs",
+  "SelectedNode": "\\Quanlycf\\AdminControl\\fViewDetail.cs",
   "PreviewInSolutionExplorer": false
 }

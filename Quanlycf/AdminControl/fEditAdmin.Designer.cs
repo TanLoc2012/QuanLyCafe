@@ -62,6 +62,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.inputNameNV = new System.Windows.Forms.TextBox();
             this.tblRoleTableAdapter = new Quanlycf.ManagerCoffeeDataSet2TableAdapters.tblRoleTableAdapter();
+            this.label8 = new System.Windows.Forms.Label();
+            this.userNameBox = new System.Windows.Forms.TextBox();
+            this.changeUserName = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRoleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet2)).BeginInit();
@@ -69,6 +72,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.changeUserName);
+            this.panel1.Controls.Add(this.userNameBox);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.changeSex);
             this.panel1.Controls.Add(this.showPass);
             this.panel1.Controls.Add(this.notifyID);
@@ -100,7 +106,7 @@
             this.panel1.Controls.Add(this.inputNameNV);
             this.panel1.Location = new System.Drawing.Point(0, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1013, 654);
+            this.panel1.Size = new System.Drawing.Size(1013, 697);
             this.panel1.TabIndex = 3;
             this.panel1.TabStop = true;
             // 
@@ -119,7 +125,7 @@
             // 
             this.showPass.AutoSize = true;
             this.showPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showPass.Location = new System.Drawing.Point(858, 592);
+            this.showPass.Location = new System.Drawing.Point(848, 645);
             this.showPass.Name = "showPass";
             this.showPass.Size = new System.Drawing.Size(135, 22);
             this.showPass.TabIndex = 33;
@@ -184,7 +190,7 @@
             // 
             this.changePass.AutoSize = true;
             this.changePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changePass.Location = new System.Drawing.Point(754, 592);
+            this.changePass.Location = new System.Drawing.Point(752, 645);
             this.changePass.Name = "changePass";
             this.changePass.Size = new System.Drawing.Size(81, 22);
             this.changePass.TabIndex = 25;
@@ -262,7 +268,7 @@
             // passBox
             // 
             this.passBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passBox.Location = new System.Drawing.Point(267, 582);
+            this.passBox.Location = new System.Drawing.Point(265, 635);
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(481, 41);
             this.passBox.TabIndex = 15;
@@ -272,7 +278,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(118, 592);
+            this.label7.Location = new System.Drawing.Point(118, 645);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 27);
             this.label7.TabIndex = 14;
@@ -420,11 +426,40 @@
             // 
             this.tblRoleTableAdapter.ClearBeforeFill = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(109, 585);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(130, 27);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Tài khoản:";
+            // 
+            // userNameBox
+            // 
+            this.userNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameBox.Location = new System.Drawing.Point(265, 585);
+            this.userNameBox.Name = "userNameBox";
+            this.userNameBox.Size = new System.Drawing.Size(481, 41);
+            this.userNameBox.TabIndex = 36;
+            // 
+            // changeUserName
+            // 
+            this.changeUserName.AutoSize = true;
+            this.changeUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeUserName.Location = new System.Drawing.Point(754, 590);
+            this.changeUserName.Name = "changeUserName";
+            this.changeUserName.Size = new System.Drawing.Size(81, 22);
+            this.changeUserName.TabIndex = 37;
+            this.changeUserName.Text = "thay đổi";
+            this.changeUserName.UseVisualStyleBackColor = true;
+            // 
             // fEditAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 647);
+            this.ClientSize = new System.Drawing.Size(1014, 711);
             this.Controls.Add(this.panel1);
             this.Name = "fEditAdmin";
             this.Text = "Chỉnh sửa thông tin nhân viên";
@@ -472,5 +507,8 @@
         private ManagerCoffeeDataSet2 managerCoffeeDataSet2;
         private System.Windows.Forms.BindingSource tblRoleBindingSource;
         private ManagerCoffeeDataSet2TableAdapters.tblRoleTableAdapter tblRoleTableAdapter;
+        private System.Windows.Forms.CheckBox changeUserName;
+        private System.Windows.Forms.TextBox userNameBox;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -20,7 +20,7 @@ namespace Quanlycf
         private void createBox_Click(object sender, EventArgs e)
         {
 
-            if (nameBox.Text == "" || (!maleBox.Checked && !femaleBox.Checked) || addressBox.Text == "" || phoneBox.Text == "" || passBox.Text == "")
+            if (nameBox.Text == "" || (!maleBox.Checked && !femaleBox.Checked) || addressBox.Text == "" || phoneBox.Text == "" || passBox.Text == "" || userNameBox.Text == "")
             {
                 MessageBox.Show("Bạn chưa điền đầy đủ thông tin. Vui lòng kiểm tra lại!", "Missing information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -39,7 +39,7 @@ namespace Quanlycf
             int temp = 0;
             if (maleBox.Checked)
                 temp = 1;
-            s = "INSERT INTO [dbo].[tblUser] VALUES (" + jobBox.SelectedValue.ToString() + ",0,'" + passBox.Text + "','" + nameBox.Text + "'," + temp.ToString() + ",'" + dateTimeBox.Value.Date.ToString() + "','" + addressBox.Text + "','" + phoneBox.Text + "');";
+            s = "INSERT INTO [dbo].[tblUser] VALUES (" + jobBox.SelectedValue.ToString() + ",0,'" + passBox.Text + "','" + nameBox.Text + "'," + temp.ToString() + ",'" + dateTimeBox.Value.Date.ToString() + "','" + addressBox.Text + "','" + phoneBox.Text + "','" + userNameBox.Text + "');";
             //INSERT INTO [dbo].[tblUser] VALUES (1,0,'HOLA','Vu Dang Khoa', 1,'1988-05-22','Tay Ninh','0937811504');
             Class.Function.Connect();
             if (Class.Function.updateData(s))

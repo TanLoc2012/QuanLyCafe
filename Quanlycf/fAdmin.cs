@@ -68,7 +68,7 @@ namespace Quanlycf
         {
             Class.Function.Connect();
             dvgUser.DataSource = null;
-            string sql = "SELECT [dbo].[tblUser].id,[dbo].[tblRole].role_name, [dbo].[tblUser].deleted, [dbo].[tblUser].passwordNV, tblUser.fullname, [dbo].[tblUser].sex, [dbo].[tblUser].dob, [dbo].[tblUser].addressU, [dbo].[tblUser].phone" 
+            string sql = "SELECT [dbo].[tblUser].id,[dbo].[tblRole].role_name, [dbo].[tblUser].deleted,[dbo].[tblUser].username, [dbo].[tblUser].passwordNV, tblUser.fullname, [dbo].[tblUser].sex, [dbo].[tblUser].dob, [dbo].[tblUser].addressU, [dbo].[tblUser].phone"
                        + " FROM[dbo].[tblUser], [dbo].[tblRole]" 
                        + " WHERE[dbo].[tblUser].role_id = [dbo].[tblRole].id;";
             DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
@@ -88,6 +88,7 @@ namespace Quanlycf
             dvgUser.AllowUserToResizeColumns = true;
             dvgUser.Columns["id"].HeaderText = "ID";
             dvgUser.Columns["role_name"].HeaderText = "Chức vụ";
+            dvgUser.Columns["username"].HeaderText = "Tài khoản";
             dvgUser.Columns["passwordNV"].HeaderText = "Mật khẩu";
             dvgUser.Columns["deleted"].HeaderText = "Xóa?";
             dvgUser.Columns["fullname"].HeaderText = "Họ và tên";
@@ -101,12 +102,17 @@ namespace Quanlycf
             dvgUser.Columns[1].Width = 80;
             //deleted
             dvgUser.Columns[2].Width = 40;
+            // Tài khoản
+            dvgUser.Columns[3].Width = 170;
+            dvgUser.Columns[3].DefaultCellStyle.BackColor = Color.LightPink;
+            dvgUser.Columns[4].DefaultCellStyle.BackColor = Color.AliceBlue;
+
             //name
-            dvgUser.Columns[4].Width = 170;
+            dvgUser.Columns[5].Width = 170;
             //sex
-            dvgUser.Columns[5].Width = 40;
-            dvgUser.Columns[7].Width = 150;
-            dvgUser.Columns[8].Width = 120;
+            dvgUser.Columns[6].Width = 40;
+            dvgUser.Columns[8].Width = 150;
+            dvgUser.Columns[9].Width = 120;
 
             dvgUser.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dvgUser.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -163,8 +169,12 @@ namespace Quanlycf
             OrderView.Columns["total_money"].HeaderText = "Tổng hóa đơn";
             OrderView.Columns["statusOrder"].HeaderText = "Trạng thái thanh toán";
             OrderView.Columns["ngay_ban"].HeaderText = "Ngày bán";
-            OrderView.Columns[2].Width = 180;
-            OrderView.Columns[4].Width = 100;
+            OrderView.Columns[0].Width = 100;
+            OrderView.Columns[2].Width = 150;
+            OrderView.Columns[2].DefaultCellStyle.BackColor = Color.AliceBlue;
+            OrderView.Columns[3].Width = 150;
+            OrderView.Columns[4].Width = 150;
+            OrderView.Columns[5].Width = 150;
 
             // Alingment column at middle Center
             OrderView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -267,6 +277,11 @@ namespace Quanlycf
         {
             updategridMainView();
             MessageBox.Show("Cập nhật thành công!", "Message", MessageBoxButtons.OK);
+        }
+
+        private void fAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
