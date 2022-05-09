@@ -16,7 +16,7 @@ namespace Quanlycf
         static DataTable tblProduct;
         static DataTable tblAddProduct;
         int ID_order = -1; // lưu id của order được chọn
-        int ID_Order_max = 0;
+       
         public DateTime startTime;
         public DateTime endTime;
         long total_money_new = 0;
@@ -44,9 +44,7 @@ namespace Quanlycf
                 "WHERE statusOrder = 0 OR statusOrder=1";
             tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             Class.Function.Disconnect();
-            if(tblCL.Rows.Count>0)
 
-                ID_Order_max = (int)tblCL.Rows[tblCL.Rows.Count - 1][0];
 
 
             tblCL.Columns.Add("status_str", typeof(String));
@@ -207,23 +205,13 @@ namespace Quanlycf
         {
 
         }
-        public void DeleteProductInNewOrder(int id)   
+        public void DeleteProductInNewOrder(int row_index)   
         {
+            if (row_index < 0 || row_index >= tblAddProduct.Rows.Count)
+                return;
             CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dvgAddProduct.DataSource];
             currencyManager1.SuspendBinding();
-
-
-            for (int i = 0; i < tblAddProduct.Rows.Count; i++)
-            {
-                if ((int)tblCL.Rows[i][0] == id)
-                {
-
-                    dvgAddProduct.Rows[i].Visible = false;
-                    currencyManager1.ResumeBinding();
-                    return;
-                }
-
-            }
+            tblAddProduct.Rows[row_index].Delete();
         }
         public void AddOrderToSql()
         {
@@ -233,7 +221,10 @@ namespace Quanlycf
                 return;
             }
             Class.Function.Connect();
-            
+
+            DialogResult dialogResult = MessageBox.Show("Tổng tiền là "+total_money_new.ToString(), "Xác nhận thanh toán !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.No)
+                return;
 
             string sql = "INSERT INTO dbo.tblOrders(id_nv, ngay_ban, statusOrder, total_money)"
                     + "VALUES(1, \'20220421 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
@@ -262,7 +253,6 @@ namespace Quanlycf
             Class.Function.Disconnect();
             tblAddProduct.Clear();
 
-            ID_Order_max++;
 
             total_money_new = 0;  //trả về 0 
             
@@ -365,14 +355,32 @@ namespace Quanlycf
 
                 var show_detailOrder = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
                 int ID = (int)grid[1, e.RowIndex].Value;
+                MessageBox.Show(ID.ToString());
                 ID_order = ID;
-
+                MessageBox.Show(ID.ToString());
                 show_detailOrder(ID);
             }
         }
         private void dvgAddProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var grid = (DataGridView)sender;
 
+            if (e.RowIndex < 0)
+            {
+                //They clicked the header column, do nothing
+                return;
+            }
+
+            if (grid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
+            {
+
+                var Delete_product_new_order = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
+                int ID=1;
+                //MessageBox.Show(grid[1, e.RowIndex].Value.ToString());
+                
+
+                Delete_product_new_order(e.RowIndex);
+            }
         }
 
         private void fStaff_Load(object sender, EventArgs e)
@@ -417,7 +425,7 @@ namespace Quanlycf
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Run(new fAdmin());
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -437,6 +445,11 @@ namespace Quanlycf
         }
 
         private void numerSoLuong_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }

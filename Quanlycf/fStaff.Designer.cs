@@ -155,7 +155,7 @@ namespace Quanlycf
             // dvgAddProduct
             // 
             this.dvgAddProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgAddProduct.Location = new System.Drawing.Point(420, 74);
+            this.dvgAddProduct.Location = new System.Drawing.Point(420, 70);
             this.dvgAddProduct.Name = "dvgAddProduct";
             this.dvgAddProduct.RowHeadersWidth = 51;
             this.dvgAddProduct.Size = new System.Drawing.Size(360, 267);
@@ -317,5 +317,6 @@ namespace Quanlycf
         private System.Windows.Forms.Button buttonComplete;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridView dvgOrderDetail;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
