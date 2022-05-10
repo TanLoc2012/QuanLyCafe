@@ -221,7 +221,7 @@ namespace Quanlycf
                 return;
 
             string sql = "INSERT INTO dbo.tblOrders(id_nv, ngay_ban, statusOrder, total_money)"
-                    + "VALUES(1, \'20220421 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
+                    + "VALUES(1, \'20220121 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
             Class.Function.updateData_nomesses(sql);
 
             string sql_getID_order = "SELECT MAX(id)" +
