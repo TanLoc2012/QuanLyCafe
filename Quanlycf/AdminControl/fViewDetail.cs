@@ -49,5 +49,10 @@ namespace Quanlycf
                 MessageBox.Show("Lỗi nào đó đã xảy ra! Vui lòng kiểm tra ID đã nhập hoặc đường truyền Server", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void OrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

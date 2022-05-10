@@ -45,9 +45,10 @@ namespace Quanlycf
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(261, 36);
+            this.txtUsername.Location = new System.Drawing.Point(196, 29);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(280, 22);
+            this.txtUsername.Size = new System.Drawing.Size(211, 20);
             this.txtUsername.TabIndex = 0;
             // 
             // panel1
@@ -56,17 +57,19 @@ namespace Quanlycf
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(12, 21);
+            this.panel1.Location = new System.Drawing.Point(9, 17);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(627, 285);
+            this.panel1.Size = new System.Drawing.Size(470, 232);
             this.panel1.TabIndex = 1;
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(435, 209);
+            this.btnExit.Location = new System.Drawing.Point(326, 170);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(159, 52);
+            this.btnExit.Size = new System.Drawing.Size(119, 42);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -75,9 +78,10 @@ namespace Quanlycf
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(205, 209);
+            this.btnLogin.Location = new System.Drawing.Point(154, 170);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(159, 52);
+            this.btnLogin.Size = new System.Drawing.Size(119, 42);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -87,16 +91,19 @@ namespace Quanlycf
             // 
             this.panel3.Controls.Add(this.txtPassword);
             this.panel3.Controls.Add(this.textPassword);
-            this.panel3.Location = new System.Drawing.Point(19, 106);
+            this.panel3.Location = new System.Drawing.Point(14, 86);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(585, 83);
+            this.panel3.Size = new System.Drawing.Size(439, 67);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(261, 36);
+            this.txtPassword.Location = new System.Drawing.Point(196, 29);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(280, 22);
+            this.txtPassword.Size = new System.Drawing.Size(211, 20);
             this.txtPassword.TabIndex = 0;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -104,9 +111,10 @@ namespace Quanlycf
             // 
             this.textPassword.AutoSize = true;
             this.textPassword.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPassword.Location = new System.Drawing.Point(23, 29);
+            this.textPassword.Location = new System.Drawing.Point(17, 24);
+            this.textPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(125, 29);
+            this.textPassword.Size = new System.Drawing.Size(102, 22);
             this.textPassword.TabIndex = 2;
             this.textPassword.Text = "Mật khẩu:";
             // 
@@ -114,27 +122,31 @@ namespace Quanlycf
             // 
             this.panel2.Controls.Add(this.txtUsername);
             this.panel2.Controls.Add(this.textUsername);
-            this.panel2.Location = new System.Drawing.Point(19, 17);
+            this.panel2.Location = new System.Drawing.Point(14, 14);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(585, 83);
+            this.panel2.Size = new System.Drawing.Size(439, 67);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // textUsername
             // 
             this.textUsername.AutoSize = true;
             this.textUsername.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textUsername.Location = new System.Drawing.Point(23, 29);
+            this.textUsername.Location = new System.Drawing.Point(17, 24);
+            this.textUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(193, 29);
+            this.textUsername.Size = new System.Drawing.Size(157, 22);
             this.textUsername.TabIndex = 2;
             this.textUsername.Text = "Tên đăng nhập:";
             // 
             // fLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 333);
+            this.ClientSize = new System.Drawing.Size(488, 271);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";

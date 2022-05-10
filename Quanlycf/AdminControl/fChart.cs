@@ -140,5 +140,10 @@ namespace Quanlycf
             TotalMoneyChart.Visible = false;
             CountOrderChart.Visible = true;
         }
+
+        private void TotalMoneyChart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

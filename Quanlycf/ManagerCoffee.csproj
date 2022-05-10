@@ -115,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManagerCoffeeDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ManagerCoffeeDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagerCoffeeDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Staff\AccountDAO.cs" />
     <Compile Include="Staff\OrderDAO.cs" />
     <Compile Include="Staff\OrderDetailDAO.cs" />
@@ -206,6 +211,17 @@
     </None>
     <None Include="ManagerCoffeeDataSet2.xss">
       <DependentUpon>ManagerCoffeeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ManagerCoffeeDataSet3.xsc">
+      <DependentUpon>ManagerCoffeeDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ManagerCoffeeDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ManagerCoffeeDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ManagerCoffeeDataSet3.xss">
+      <DependentUpon>ManagerCoffeeDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

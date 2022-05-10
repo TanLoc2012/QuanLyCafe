@@ -53,8 +53,10 @@ namespace Quanlycf
 
         private void fAddNV_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'managerCoffeeDataSet3.tblRole' table. You can move, or remove it, as needed.
+            this.tblRoleTableAdapter1.Fill(this.managerCoffeeDataSet3.tblRole);
             // TODO: This line of code loads data into the 'managerCoffeeDataSet1.tblRole' table. You can move, or remove it, as needed.
-            this.tblRoleTableAdapter.Fill(this.managerCoffeeDataSet1.tblRole);
+            //this.tblRoleTableAdapter.Fill(this.managerCoffeeDataSet1.tblRole);
 
         }
 
@@ -68,6 +70,11 @@ namespace Quanlycf
             {
                 this.passBox.UseSystemPasswordChar = true;
             }
+        }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Quanlycf.Staff
             SqlConnection conn = new SqlConnection();
             try
             {
-                conn.ConnectionString = @"Data Source=DESKTOP-6VUOC5Q\MYSERVER_SQL;Initial Catalog=ManagerCoffee;Integrated Security=True";
+                conn.ConnectionString = @"Data Source=DESKTOP-KPRJ34J;Initial Catalog=ManagerCoffee;Integrated Security=True";
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;

@@ -40,9 +40,10 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(559, 97);
+            this.button1.Location = new System.Drawing.Point(419, 79);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 72);
+            this.button1.Size = new System.Drawing.Size(92, 58);
             this.button1.TabIndex = 18;
             this.button1.Text = "Lọc";
             this.button1.UseVisualStyleBackColor = false;
@@ -50,18 +51,20 @@
             // 
             // endTime
             // 
-            this.endTime.Location = new System.Drawing.Point(231, 206);
+            this.endTime.Location = new System.Drawing.Point(173, 167);
+            this.endTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.endTime.Name = "endTime";
-            this.endTime.Size = new System.Drawing.Size(273, 22);
+            this.endTime.Size = new System.Drawing.Size(206, 20);
             this.endTime.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 201);
+            this.label2.Location = new System.Drawing.Point(19, 163);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 27);
+            this.label2.Size = new System.Drawing.Size(143, 22);
             this.label2.TabIndex = 16;
             this.label2.Text = "Ngày kết thúc:";
             // 
@@ -69,31 +72,35 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 56);
+            this.label1.Location = new System.Drawing.Point(24, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 27);
+            this.label1.Size = new System.Drawing.Size(138, 22);
             this.label1.TabIndex = 15;
             this.label1.Text = "Ngày bắt đầu:";
             // 
             // startTime
             // 
-            this.startTime.Location = new System.Drawing.Point(231, 60);
+            this.startTime.Location = new System.Drawing.Point(173, 49);
+            this.startTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.startTime.Name = "startTime";
-            this.startTime.Size = new System.Drawing.Size(273, 22);
+            this.startTime.Size = new System.Drawing.Size(206, 20);
             this.startTime.TabIndex = 14;
             // 
             // fFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 276);
+            this.ClientSize = new System.Drawing.Size(536, 224);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.endTime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startTime);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "fFilter";
             this.Text = "Bộ lọc";
+            this.Load += new System.EventHandler(this.fFilter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

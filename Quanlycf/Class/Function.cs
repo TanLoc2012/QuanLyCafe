@@ -17,7 +17,7 @@ namespace Quanlycf.Class
         {
             Con = new SqlConnection();   //Khởi tạo đối tượng
             //Con.ConnectionString = @"Data Source=DESKTOP-6VUOC5Q\MYSERVER_SQL;Initial Catalog=ManagerCoffee;Integrated Security=True";
-            Con.ConnectionString = @"Data Source=DESKTOP-6VUOC5Q\MYSERVER_SQL;Initial Catalog=ManagerCoffee;Integrated Security=True";
+            Con.ConnectionString = @"Data Source=DESKTOP-KPRJ34J;Initial Catalog=ManagerCoffee;Integrated Security=True";
             Con.Open();                  //Mở kết nối
             //Kiểm tra kết nối
             if (!(Con.State == ConnectionState.Open))
@@ -74,6 +74,32 @@ namespace Quanlycf.Class
         {
             Con.Close();
         }
+        public static bool updateData_nomesses(string query)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = Con;
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                switch (sqlEx.Number)
+                {
+                    case 273:
+                        MessageBox.Show("Các giá trị nhập vào không hợp lệ, vui lòng kiểm tra lại!");
+                        break;
 
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return true;
+        }
     }
 }

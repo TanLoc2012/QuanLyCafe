@@ -30,5 +30,10 @@ namespace Quanlycf
     "WHERE[dbo].[tblOrders].id_nv = [dbo].[tblUser].id AND [dbo].[tblOrders].ngay_ban >= '" + startTime.Value.Date.ToString("yyyy/MM/dd") + "' AND [dbo].[tblOrders].ngay_ban <= '" + endTime.Value.Date.ToString("yyyy/MM/dd") + "' ;";
             this.Hide();
         }
+
+        private void fFilter_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

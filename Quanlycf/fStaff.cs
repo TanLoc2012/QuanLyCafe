@@ -12,36 +12,36 @@ namespace Quanlycf
 {
     public partial class fStaff : Form
     {
-         DataTable tblCL;
+        DataTable tblCL;
         static DataTable tblProduct;
         static DataTable tblAddProduct;
         int ID_order = -1; // lưu id của order được chọn
-       
+
         public DateTime startTime;
         public DateTime endTime;
         long total_money_new = 0;
         public fStaff()
         {
-            
+
             InitializeComponent();
-         
+
             LoadOrder();
             AddOrder();
             startTime = DateTime.Now;
             endTime = startTime;
- 
+
         }
         #region Method
 
         void LoadOrder()
         {
-            if (tblCL!= null)
-            tblCL.Clear();
+            if (tblCL != null)
+                tblCL.Clear();
             dvgOrder.Columns.Clear();
-            dvgOrder.Refresh();
+            // dvgOrder.Refresh();
             Class.Function.Connect();
             string sql = "SELECT * FROM dbo.tblOrders" + "\n" +
-                "WHERE statusOrder = 0 OR statusOrder=1";
+                "WHERE statusOrder = 0 OR statusOrder=1 ORDER BY statusOrder";
             tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             Class.Function.Disconnect();
 
@@ -57,10 +57,10 @@ namespace Quanlycf
             dvgOrder.Columns[0].Width = 50;
             dvgOrder.Columns[0].HeaderText = "Mã số";
 
-            dvgOrder.Columns[1].Width = 50;
+            dvgOrder.Columns[1].Width = 40;
             dvgOrder.Columns[1].HeaderText = "MSNV";
 
-            dvgOrder.Columns[2].Width = 70;
+            dvgOrder.Columns[2].Width = 60;
             dvgOrder.Columns[2].HeaderText = "Thành tiền";
 
             dvgOrder.Columns["statusOrder"].Visible = false;
@@ -79,15 +79,17 @@ namespace Quanlycf
                 if ((int)tblCL.Rows[i][3] == 1)
                 {
                     tblCL.Rows[i][5] = "Đã xong";
+                    dvgOrder.Rows[i].Cells[5].Style.BackColor = Color.Green;
                 }
                 else
                 {
                     tblCL.Rows[i][5] = "Đang chờ";
+                    dvgOrder.Rows[i].Cells[5].Style.BackColor = Color.Red;
                 }
             }
             dvgOrder.Columns["status_str"].HeaderText = "Trạng thái";
 
-
+            dvgOrder.Columns["status_str"].Width = 90;
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
 
             btn.HeaderText = "";
@@ -105,10 +107,10 @@ namespace Quanlycf
 
         }
 
-      
+
         public void ShowOrderDetail(int id)
         {
-            MessageBox.Show(id.ToString());
+            // MessageBox.Show(id.ToString());
             Class.Function.Connect();
             string sqlOrderDetail = "SELECT tblOrderDetail.*, tblProduct.title" + "\n" +
             "FROM tblOrderDetail LEFT JOIN tblProduct on tblProduct.id = tblOrderDetail.product_id" + "\n" +
@@ -157,16 +159,8 @@ namespace Quanlycf
             Class.Function.Connect();
             Class.Function.updateData(sql_complete);
             Class.Function.Disconnect();
-            for (int i = 0; i < tblCL.Rows.Count; i++)
-            {
-                if ((int)tblCL.Rows[i][0] == id)
-                {
-                    tblCL.Rows[i][5] = "Đã xong";
-                    tblCL.Rows[i][3] = 1;
-                    return;
-                }
+            LoadOrder();
 
-            }
         }
         private void DeleteOrder(int id)
         {
@@ -176,7 +170,7 @@ namespace Quanlycf
             Class.Function.updateData(sql_delete);
             Class.Function.Disconnect();
 
-           
+
             LoadOrder();
         }
         #endregion
@@ -184,7 +178,7 @@ namespace Quanlycf
         public void AddOrderDetail()
         {
 
-            
+
 
             int index = combo_MonAn.SelectedIndex;
             int id_product = (int)tblProduct.Rows[index][0];
@@ -199,13 +193,13 @@ namespace Quanlycf
             new_row[2] = price_product;
             new_row[3] = num;
             tblAddProduct.Rows.Add(new_row);
-   
+
         }
         public void CreatOrderDetail()
         {
 
         }
-        public void DeleteProductInNewOrder(int row_index)   
+        public void DeleteProductInNewOrder(int row_index)
         {
             if (row_index < 0 || row_index >= tblAddProduct.Rows.Count)
                 return;
@@ -217,30 +211,30 @@ namespace Quanlycf
         {
             if (tblAddProduct.Rows.Count < 1)
             {
-                MessageBox.Show("chưua có món ăn được thêm");
+                MessageBox.Show("Chưa có món ăn được thêm!");
                 return;
             }
             Class.Function.Connect();
 
-            DialogResult dialogResult = MessageBox.Show("Tổng tiền là "+total_money_new.ToString(), "Xác nhận thanh toán !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialogResult = MessageBox.Show("Tổng tiền là " + total_money_new.ToString() +" VNĐ", "Xác nhận thanh toán !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.No)
                 return;
 
             string sql = "INSERT INTO dbo.tblOrders(id_nv, ngay_ban, statusOrder, total_money)"
                     + "VALUES(1, \'20220421 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
-            Class.Function.updateData(sql);
+            Class.Function.updateData_nomesses(sql);
 
             string sql_getID_order = "SELECT MAX(id)" +
                                     "FROM tblOrders";
-                                 //   "WHERE statusOrder = 0";
+            //   "WHERE statusOrder = 0";
             DataTable tblMaxID = Class.Function.GetDataToTable(sql_getID_order);
-            int id_order_new=Int32.Parse(tblMaxID.Rows[0][0].ToString());
+            int id_order_new = Int32.Parse(tblMaxID.Rows[0][0].ToString());
 
 
 
             for (int i = 0; i < tblAddProduct.Rows.Count; i++)
             {
-                
+
                 int id_product = Int32.Parse(tblAddProduct.Rows[i][0].ToString());
                 int price_product = Int32.Parse(tblAddProduct.Rows[i][2].ToString());
                 int num_product = Int32.Parse(tblAddProduct.Rows[i][3].ToString());
@@ -248,21 +242,22 @@ namespace Quanlycf
                 + "VALUES(" + id_order_new.ToString() + "," + id_product.ToString() + ","
                     + price_product.ToString() + "," + num_product.ToString() + "," +
                     (price_product * num_product).ToString() + ")";
-                Class.Function.updateData(sql_orderdetail);
+                Class.Function.updateData_nomesses(sql_orderdetail);
             }
             Class.Function.Disconnect();
             tblAddProduct.Clear();
 
 
             total_money_new = 0;  //trả về 0 
-            
+
             LoadOrder();
         }
         public void AddOrder()
         {
-            
+
             tblAddProduct = new DataTable();
             tblAddProduct.Columns.Add("id");
+
             tblAddProduct.Columns.Add("name");
 
 
@@ -271,12 +266,22 @@ namespace Quanlycf
             tblAddProduct.Columns.Add("number");
             dvgAddProduct.DataSource = tblAddProduct;
 
+            dvgAddProduct.Columns["id"].Visible = false;
+            dvgAddProduct.Columns["name"].HeaderText = "Tên Món";
+
+            dvgAddProduct.Columns["price"].HeaderText = "Giá";
+            dvgAddProduct.Columns["price"].Width = 70;
+
+            dvgAddProduct.Columns["number"].HeaderText = "Số lượng";
+            dvgAddProduct.Columns["number"].Width = 40;
+
             numerSoLuong.Minimum = 1;
 
             Class.Function.Connect();
             string sql_product = "SELECT id,title,price FROM dbo.tblProduct";
             tblProduct = Class.Function.GetDataToTable(sql_product);
             combo_MonAn.DataSource = tblProduct;
+
             combo_MonAn.DisplayMember = "title";
 
             button_addProduct.Tag = (Action)AddOrderDetail;
@@ -293,7 +298,7 @@ namespace Quanlycf
             dvgAddProduct.Columns.Add(btn);
         }
 
-      
+
 
         #region Event
 
@@ -354,10 +359,9 @@ namespace Quanlycf
             {
 
                 var show_detailOrder = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
-                int ID = (int)grid[1, e.RowIndex].Value;
-                MessageBox.Show(ID.ToString());
+                int ID = Int32.Parse(tblCL.Rows[e.RowIndex][0].ToString());
                 ID_order = ID;
-                MessageBox.Show(ID.ToString());
+
                 show_detailOrder(ID);
             }
         }
@@ -375,9 +379,9 @@ namespace Quanlycf
             {
 
                 var Delete_product_new_order = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
-                int ID=1;
+                int ID = 1;
                 //MessageBox.Show(grid[1, e.RowIndex].Value.ToString());
-                
+
 
                 Delete_product_new_order(e.RowIndex);
             }
@@ -425,13 +429,13 @@ namespace Quanlycf
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void button_addProduct_Click(object sender, EventArgs e)

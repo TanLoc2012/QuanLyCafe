@@ -32,7 +32,7 @@ namespace Quanlycf
             SqlConnection conn = new SqlConnection();
             try
             {
-                conn.ConnectionString = @"Data Source=DESKTOP-6VUOC5Q\MYSERVER_SQL;Initial Catalog=ManagerCoffee;Integrated Security=True";
+                conn.ConnectionString = @"Data Source=DESKTOP-KPRJ34J;Initial Catalog=ManagerCoffee;Integrated Security=True";
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[tblUser] WHERE username ='" + username + "' and passwordNV='" + pass + "'", conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -48,7 +48,7 @@ namespace Quanlycf
             }
             catch (Exception)
             {
-                MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
+                //MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
             }
             finally
             {
@@ -107,6 +107,16 @@ namespace Quanlycf
             {
                 e.Cancel = true;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

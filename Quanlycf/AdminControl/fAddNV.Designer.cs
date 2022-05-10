@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.userNameBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.createBox = new System.Windows.Forms.Button();
             this.showPass = new System.Windows.Forms.CheckBox();
             this.passBox = new System.Windows.Forms.TextBox();
@@ -50,11 +52,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.tblRoleTableAdapter = new Quanlycf.ManagerCoffeeDataSet1TableAdapters.tblRoleTableAdapter();
-            this.label8 = new System.Windows.Forms.Label();
-            this.userNameBox = new System.Windows.Forms.TextBox();
+            this.managerCoffeeDataSet3 = new Quanlycf.ManagerCoffeeDataSet3();
+            this.tblRoleBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tblRoleTableAdapter1 = new Quanlycf.ManagerCoffeeDataSet3TableAdapters.tblRoleTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRoleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblRoleBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,17 +84,39 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.nameBox);
             this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1114, 663);
+            this.panel1.Size = new System.Drawing.Size(836, 539);
             this.panel1.TabIndex = 2;
+            // 
+            // userNameBox
+            // 
+            this.userNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameBox.Location = new System.Drawing.Point(182, 426);
+            this.userNameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameBox.Name = "userNameBox";
+            this.userNameBox.Size = new System.Drawing.Size(362, 35);
+            this.userNameBox.TabIndex = 18;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(32, 434);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(143, 22);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Tên tài khoản:";
             // 
             // createBox
             // 
             this.createBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.createBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createBox.Location = new System.Drawing.Point(800, 93);
+            this.createBox.Location = new System.Drawing.Point(600, 76);
+            this.createBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.createBox.Name = "createBox";
-            this.createBox.Size = new System.Drawing.Size(126, 107);
+            this.createBox.Size = new System.Drawing.Size(94, 87);
             this.createBox.TabIndex = 16;
             this.createBox.Text = "Tạo mới";
             this.createBox.UseVisualStyleBackColor = false;
@@ -98,9 +125,10 @@
             // showPass
             // 
             this.showPass.AutoSize = true;
-            this.showPass.Location = new System.Drawing.Point(739, 606);
+            this.showPass.Location = new System.Drawing.Point(554, 492);
+            this.showPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.showPass.Name = "showPass";
-            this.showPass.Size = new System.Drawing.Size(124, 20);
+            this.showPass.Size = new System.Drawing.Size(101, 17);
             this.showPass.TabIndex = 15;
             this.showPass.Text = "Show password";
             this.showPass.UseVisualStyleBackColor = true;
@@ -109,9 +137,10 @@
             // passBox
             // 
             this.passBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passBox.Location = new System.Drawing.Point(243, 594);
+            this.passBox.Location = new System.Drawing.Point(182, 483);
+            this.passBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.passBox.Name = "passBox";
-            this.passBox.Size = new System.Drawing.Size(481, 41);
+            this.passBox.Size = new System.Drawing.Size(362, 35);
             this.passBox.TabIndex = 14;
             this.passBox.UseSystemPasswordChar = true;
             // 
@@ -119,74 +148,81 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(94, 603);
+            this.label7.Location = new System.Drawing.Point(70, 490);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 27);
+            this.label7.Size = new System.Drawing.Size(102, 22);
             this.label7.TabIndex = 13;
             this.label7.Text = "Mật khẩu:";
             // 
             // phoneBox
             // 
             this.phoneBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneBox.Location = new System.Drawing.Point(243, 473);
+            this.phoneBox.Location = new System.Drawing.Point(182, 384);
+            this.phoneBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.phoneBox.Name = "phoneBox";
-            this.phoneBox.Size = new System.Drawing.Size(481, 41);
+            this.phoneBox.Size = new System.Drawing.Size(362, 35);
             this.phoneBox.TabIndex = 12;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(51, 483);
+            this.label6.Location = new System.Drawing.Point(38, 392);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 27);
+            this.label6.Size = new System.Drawing.Size(138, 22);
             this.label6.TabIndex = 11;
             this.label6.Text = "Số điện thoại:";
             // 
             // addressBox
             // 
             this.addressBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressBox.Location = new System.Drawing.Point(243, 403);
+            this.addressBox.Location = new System.Drawing.Point(182, 327);
+            this.addressBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addressBox.Name = "addressBox";
-            this.addressBox.Size = new System.Drawing.Size(481, 41);
+            this.addressBox.Size = new System.Drawing.Size(362, 35);
             this.addressBox.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(118, 403);
+            this.label5.Location = new System.Drawing.Point(88, 327);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 27);
+            this.label5.Size = new System.Drawing.Size(80, 22);
             this.label5.TabIndex = 9;
             this.label5.Text = "Địa chỉ:";
             // 
             // dateTimeBox
             // 
-            this.dateTimeBox.Location = new System.Drawing.Point(243, 334);
+            this.dateTimeBox.Location = new System.Drawing.Point(182, 271);
+            this.dateTimeBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimeBox.Name = "dateTimeBox";
-            this.dateTimeBox.Size = new System.Drawing.Size(481, 22);
+            this.dateTimeBox.Size = new System.Drawing.Size(362, 20);
             this.dateTimeBox.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(85, 330);
+            this.label4.Location = new System.Drawing.Point(64, 268);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 27);
+            this.label4.Size = new System.Drawing.Size(109, 22);
             this.label4.TabIndex = 7;
             this.label4.Text = "Ngày sinh:";
             // 
             // jobBox
             // 
-            this.jobBox.DataSource = this.tblRoleBindingSource;
+            this.jobBox.DataSource = this.tblRoleBindingSource1;
             this.jobBox.DisplayMember = "role_name";
             this.jobBox.FormattingEnabled = true;
-            this.jobBox.ItemHeight = 16;
-            this.jobBox.Location = new System.Drawing.Point(243, 235);
+            this.jobBox.Location = new System.Drawing.Point(182, 191);
+            this.jobBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.jobBox.Name = "jobBox";
-            this.jobBox.Size = new System.Drawing.Size(481, 52);
+            this.jobBox.Size = new System.Drawing.Size(362, 43);
             this.jobBox.TabIndex = 6;
             this.jobBox.ValueMember = "id";
             // 
@@ -204,9 +240,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(100, 231);
+            this.label2.Location = new System.Drawing.Point(75, 188);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 27);
+            this.label2.Size = new System.Drawing.Size(96, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "Chức vụ:";
             // 
@@ -214,9 +251,10 @@
             // 
             this.femaleBox.AutoSize = true;
             this.femaleBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.femaleBox.Location = new System.Drawing.Point(337, 182);
+            this.femaleBox.Location = new System.Drawing.Point(253, 148);
+            this.femaleBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.femaleBox.Name = "femaleBox";
-            this.femaleBox.Size = new System.Drawing.Size(59, 28);
+            this.femaleBox.Size = new System.Drawing.Size(51, 23);
             this.femaleBox.TabIndex = 4;
             this.femaleBox.TabStop = true;
             this.femaleBox.Text = "Nữ";
@@ -226,9 +264,10 @@
             // 
             this.maleBox.AutoSize = true;
             this.maleBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maleBox.Location = new System.Drawing.Point(243, 182);
+            this.maleBox.Location = new System.Drawing.Point(182, 148);
+            this.maleBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maleBox.Name = "maleBox";
-            this.maleBox.Size = new System.Drawing.Size(73, 28);
+            this.maleBox.Size = new System.Drawing.Size(62, 23);
             this.maleBox.TabIndex = 3;
             this.maleBox.TabStop = true;
             this.maleBox.Text = "Nam";
@@ -238,9 +277,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 181);
+            this.label3.Location = new System.Drawing.Point(75, 147);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 27);
+            this.label3.Size = new System.Drawing.Size(96, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Giới tính:";
             // 
@@ -248,48 +288,48 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 103);
+            this.label1.Location = new System.Drawing.Point(26, 84);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 27);
+            this.label1.Size = new System.Drawing.Size(150, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Nhân viên:";
             // 
             // nameBox
             // 
             this.nameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameBox.Location = new System.Drawing.Point(245, 93);
+            this.nameBox.Location = new System.Drawing.Point(184, 76);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(479, 41);
+            this.nameBox.Size = new System.Drawing.Size(360, 35);
             this.nameBox.TabIndex = 1;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // tblRoleTableAdapter
             // 
             this.tblRoleTableAdapter.ClearBeforeFill = true;
             // 
-            // label8
+            // managerCoffeeDataSet3
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(43, 534);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(172, 27);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Tên tài khoản:";
+            this.managerCoffeeDataSet3.DataSetName = "ManagerCoffeeDataSet3";
+            this.managerCoffeeDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // userNameBox
+            // tblRoleBindingSource1
             // 
-            this.userNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameBox.Location = new System.Drawing.Point(243, 524);
-            this.userNameBox.Name = "userNameBox";
-            this.userNameBox.Size = new System.Drawing.Size(481, 41);
-            this.userNameBox.TabIndex = 18;
+            this.tblRoleBindingSource1.DataMember = "tblRole";
+            this.tblRoleBindingSource1.DataSource = this.managerCoffeeDataSet3;
+            // 
+            // tblRoleTableAdapter1
+            // 
+            this.tblRoleTableAdapter1.ClearBeforeFill = true;
             // 
             // fAddNV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 677);
+            this.ClientSize = new System.Drawing.Size(842, 550);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "fAddNV";
             this.Text = "Biểu mẫu thêm nhân viên";
             this.Load += new System.EventHandler(this.fAddNV_Load);
@@ -297,6 +337,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRoleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerCoffeeDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblRoleBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -326,5 +368,8 @@
         private ManagerCoffeeDataSet1TableAdapters.tblRoleTableAdapter tblRoleTableAdapter;
         private System.Windows.Forms.TextBox userNameBox;
         private System.Windows.Forms.Label label8;
+        private ManagerCoffeeDataSet3 managerCoffeeDataSet3;
+        private System.Windows.Forms.BindingSource tblRoleBindingSource1;
+        private ManagerCoffeeDataSet3TableAdapters.tblRoleTableAdapter tblRoleTableAdapter1;
     }
 }

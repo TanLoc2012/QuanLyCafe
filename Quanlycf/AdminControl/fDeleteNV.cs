@@ -67,5 +67,10 @@ namespace Quanlycf
                 //do something else
             }
         }
+
+        private void IDbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
