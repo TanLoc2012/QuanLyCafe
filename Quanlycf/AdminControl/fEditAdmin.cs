@@ -16,6 +16,12 @@ namespace Quanlycf
         public fEditAdmin()
         {
             InitializeComponent();
+            string sql = "SELECT id, role_name FROM [dbo].[tblRole] ";
+            Class.Function.Connect();
+            DataTable tblCL = Class.Function.GetDataToTable(sql);
+            jobList.DataSource = tblCL;
+            jobList.ValueMember = "id";
+            jobList.DisplayMember = "role_name";
         }
 
         private void fEditAdmin_Load(object sender, EventArgs e)

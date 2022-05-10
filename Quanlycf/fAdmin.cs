@@ -69,7 +69,7 @@ namespace Quanlycf
             Class.Function.Connect();
             dvgUser.DataSource = null;
             string sql = "SELECT [dbo].[tblUser].id,[dbo].[tblRole].role_name, [dbo].[tblUser].deleted,[dbo].[tblUser].username, [dbo].[tblUser].passwordNV, tblUser.fullname, [dbo].[tblUser].sex, [dbo].[tblUser].dob, [dbo].[tblUser].addressU, [dbo].[tblUser].phone"
-                       + " FROM[dbo].[tblUser], [dbo].[tblRole]" 
+                       + " FROM[dbo].[tblUser], [dbo].[tblRole]"
                        + " WHERE[dbo].[tblUser].role_id = [dbo].[tblRole].id;";
             DataTable tblCL = Class.Function.GetDataToTable(sql); //Đọc dữ liệu từ bảng
 
@@ -116,11 +116,11 @@ namespace Quanlycf
 
             dvgUser.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dvgUser.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dvgUser.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dvgUser.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dvgUser.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Tương tự như ở trên
-            OrderView.DataSource = null;        
+            OrderView.DataSource = null;
             sql = "SELECT [dbo].[tblOrders].id, [dbo].[tblOrders].id_nv, [dbo].[tblUser].fullname, [dbo].[tblOrders].total_money, [dbo].[tblOrders].statusOrder, [dbo].[tblOrders].ngay_ban " +
                 "FROM[dbo].[tblOrders], [dbo].[tblUser] " +
                 "WHERE[dbo].[tblOrders].id_nv = [dbo].[tblUser].id; ";

@@ -105,18 +105,19 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.inputNameNV);
             this.panel1.Location = new System.Drawing.Point(0, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(760, 566);
             this.panel1.TabIndex = 3;
             this.panel1.TabStop = true;
+            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // changeUserName
             // 
             this.changeUserName.AutoSize = true;
             this.changeUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeUserName.Location = new System.Drawing.Point(566, 479);
-            this.changeUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeUserName.Margin = new System.Windows.Forms.Padding(2);
             this.changeUserName.Name = "changeUserName";
             this.changeUserName.Size = new System.Drawing.Size(68, 19);
             this.changeUserName.TabIndex = 37;
@@ -127,7 +128,7 @@
             // 
             this.userNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameBox.Location = new System.Drawing.Point(199, 475);
-            this.userNameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameBox.Margin = new System.Windows.Forms.Padding(2);
             this.userNameBox.Name = "userNameBox";
             this.userNameBox.Size = new System.Drawing.Size(362, 35);
             this.userNameBox.TabIndex = 36;
@@ -148,7 +149,7 @@
             this.changeSex.AutoSize = true;
             this.changeSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeSex.Location = new System.Drawing.Point(564, 244);
-            this.changeSex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeSex.Margin = new System.Windows.Forms.Padding(2);
             this.changeSex.Name = "changeSex";
             this.changeSex.Size = new System.Drawing.Size(68, 19);
             this.changeSex.TabIndex = 34;
@@ -160,7 +161,7 @@
             this.showPass.AutoSize = true;
             this.showPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showPass.Location = new System.Drawing.Point(636, 524);
-            this.showPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showPass.Margin = new System.Windows.Forms.Padding(2);
             this.showPass.Name = "showPass";
             this.showPass.Size = new System.Drawing.Size(111, 19);
             this.showPass.TabIndex = 33;
@@ -184,7 +185,7 @@
             this.checkID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.checkID.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkID.Location = new System.Drawing.Point(564, 118);
-            this.checkID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkID.Margin = new System.Windows.Forms.Padding(2);
             this.checkID.Name = "checkID";
             this.checkID.Size = new System.Drawing.Size(41, 25);
             this.checkID.TabIndex = 31;
@@ -196,7 +197,7 @@
             // 
             this.IDbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDbox.Location = new System.Drawing.Point(200, 113);
-            this.IDbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IDbox.Margin = new System.Windows.Forms.Padding(2);
             this.IDbox.Name = "IDbox";
             this.IDbox.Size = new System.Drawing.Size(360, 35);
             this.IDbox.TabIndex = 30;
@@ -218,7 +219,7 @@
             this.richTextBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
             this.richTextBox1.Enabled = false;
             this.richTextBox1.Location = new System.Drawing.Point(200, 19);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(337, 81);
@@ -232,7 +233,7 @@
             this.changePass.AutoSize = true;
             this.changePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePass.Location = new System.Drawing.Point(564, 524);
-            this.changePass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changePass.Margin = new System.Windows.Forms.Padding(2);
             this.changePass.Name = "changePass";
             this.changePass.Size = new System.Drawing.Size(68, 19);
             this.changePass.TabIndex = 25;
@@ -244,7 +245,7 @@
             this.changePhone.AutoSize = true;
             this.changePhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePhone.Location = new System.Drawing.Point(566, 440);
-            this.changePhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changePhone.Margin = new System.Windows.Forms.Padding(2);
             this.changePhone.Name = "changePhone";
             this.changePhone.Size = new System.Drawing.Size(68, 19);
             this.changePhone.TabIndex = 24;
@@ -256,7 +257,7 @@
             this.changeAddress.AutoSize = true;
             this.changeAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeAddress.Location = new System.Drawing.Point(566, 383);
-            this.changeAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeAddress.Margin = new System.Windows.Forms.Padding(2);
             this.changeAddress.Name = "changeAddress";
             this.changeAddress.Size = new System.Drawing.Size(68, 19);
             this.changeAddress.TabIndex = 23;
@@ -268,7 +269,7 @@
             this.changeDateOfBirth.AutoSize = true;
             this.changeDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeDateOfBirth.Location = new System.Drawing.Point(566, 340);
-            this.changeDateOfBirth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeDateOfBirth.Margin = new System.Windows.Forms.Padding(2);
             this.changeDateOfBirth.Name = "changeDateOfBirth";
             this.changeDateOfBirth.Size = new System.Drawing.Size(68, 19);
             this.changeDateOfBirth.TabIndex = 22;
@@ -280,7 +281,7 @@
             this.changeJob.AutoSize = true;
             this.changeJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeJob.Location = new System.Drawing.Point(566, 286);
-            this.changeJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeJob.Margin = new System.Windows.Forms.Padding(2);
             this.changeJob.Name = "changeJob";
             this.changeJob.Size = new System.Drawing.Size(68, 19);
             this.changeJob.TabIndex = 21;
@@ -292,7 +293,7 @@
             this.changeName.AutoSize = true;
             this.changeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeName.Location = new System.Drawing.Point(564, 206);
-            this.changeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeName.Margin = new System.Windows.Forms.Padding(2);
             this.changeName.Name = "changeName";
             this.changeName.Size = new System.Drawing.Size(68, 19);
             this.changeName.TabIndex = 20;
@@ -305,7 +306,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(610, 28);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 63);
             this.button1.TabIndex = 17;
@@ -317,7 +318,7 @@
             // 
             this.passBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passBox.Location = new System.Drawing.Point(199, 516);
-            this.passBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passBox.Margin = new System.Windows.Forms.Padding(2);
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(362, 35);
             this.passBox.TabIndex = 15;
@@ -338,7 +339,7 @@
             // 
             this.phoneBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneBox.Location = new System.Drawing.Point(200, 427);
-            this.phoneBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phoneBox.Margin = new System.Windows.Forms.Padding(2);
             this.phoneBox.Name = "phoneBox";
             this.phoneBox.Size = new System.Drawing.Size(362, 35);
             this.phoneBox.TabIndex = 13;
@@ -358,7 +359,7 @@
             // 
             this.addressBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressBox.Location = new System.Drawing.Point(200, 375);
-            this.addressBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addressBox.Margin = new System.Windows.Forms.Padding(2);
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(362, 35);
             this.addressBox.TabIndex = 11;
@@ -377,7 +378,7 @@
             // dateOfbirth
             // 
             this.dateOfbirth.Location = new System.Drawing.Point(200, 340);
-            this.dateOfbirth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateOfbirth.Margin = new System.Windows.Forms.Padding(2);
             this.dateOfbirth.Name = "dateOfbirth";
             this.dateOfbirth.Size = new System.Drawing.Size(362, 20);
             this.dateOfbirth.TabIndex = 9;
@@ -399,7 +400,7 @@
             this.jobList.DisplayMember = "role_name";
             this.jobList.FormattingEnabled = true;
             this.jobList.Location = new System.Drawing.Point(200, 277);
-            this.jobList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.jobList.Margin = new System.Windows.Forms.Padding(2);
             this.jobList.Name = "jobList";
             this.jobList.Size = new System.Drawing.Size(362, 43);
             this.jobList.TabIndex = 7;
@@ -431,7 +432,7 @@
             this.femaleCheck.AutoSize = true;
             this.femaleCheck.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.femaleCheck.Location = new System.Drawing.Point(266, 240);
-            this.femaleCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.femaleCheck.Margin = new System.Windows.Forms.Padding(2);
             this.femaleCheck.Name = "femaleCheck";
             this.femaleCheck.Size = new System.Drawing.Size(51, 23);
             this.femaleCheck.TabIndex = 5;
@@ -444,7 +445,7 @@
             this.maleCheck.AutoSize = true;
             this.maleCheck.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maleCheck.Location = new System.Drawing.Point(200, 239);
-            this.maleCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maleCheck.Margin = new System.Windows.Forms.Padding(2);
             this.maleCheck.Name = "maleCheck";
             this.maleCheck.Size = new System.Drawing.Size(62, 23);
             this.maleCheck.TabIndex = 4;
@@ -479,7 +480,7 @@
             // 
             this.inputNameNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputNameNV.Location = new System.Drawing.Point(200, 197);
-            this.inputNameNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputNameNV.Margin = new System.Windows.Forms.Padding(2);
             this.inputNameNV.Name = "inputNameNV";
             this.inputNameNV.Size = new System.Drawing.Size(360, 35);
             this.inputNameNV.TabIndex = 1;
@@ -494,7 +495,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 578);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fEditAdmin";
             this.Text = "Chỉnh sửa thông tin nhân viên";
             this.Load += new System.EventHandler(this.fEditAdmin_Load);

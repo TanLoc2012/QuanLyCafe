@@ -15,6 +15,13 @@ namespace Quanlycf
         public fAddNV()
         {
             InitializeComponent();
+            string sql = "SELECT id, role_name FROM [dbo].[tblRole] ";
+            Class.Function.Connect();
+            DataTable tblCL = Class.Function.GetDataToTable(sql);
+            jobBox.DataSource = tblCL;
+            jobBox.ValueMember = "id";
+            jobBox.DisplayMember = "role_name";
+
         }
 
         private void createBox_Click(object sender, EventArgs e)
@@ -54,7 +61,7 @@ namespace Quanlycf
         private void fAddNV_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'managerCoffeeDataSet3.tblRole' table. You can move, or remove it, as needed.
-            this.tblRoleTableAdapter1.Fill(this.managerCoffeeDataSet3.tblRole);
+            //this.tblRoleTableAdapter1.Fill(this.managerCoffeeDataSet3.tblRole);
             // TODO: This line of code loads data into the 'managerCoffeeDataSet1.tblRole' table. You can move, or remove it, as needed.
             //this.tblRoleTableAdapter.Fill(this.managerCoffeeDataSet1.tblRole);
 
