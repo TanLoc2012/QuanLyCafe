@@ -53,3 +53,14 @@ D:\btl_ltnc\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.GenerateResource.
 D:\btl_ltnc\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.CoreCompileInputs.cache
 D:\btl_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.exe
 D:\btl_ltnc\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.pdb
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.exe.config
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.exe
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\bin\Debug\Quanlycf.pdb
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.AssemblyReference.cache
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fLogin.resources
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.fStaff.resources
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.Properties.Resources.resources
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.GenerateResource.cache
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\ManagerCoffee.csproj.CoreCompileInputs.cache
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.exe
+D:\LTNC_FINAL\QuanLyCafe\Quanlycf\obj\Debug\Quanlycf.pdb
