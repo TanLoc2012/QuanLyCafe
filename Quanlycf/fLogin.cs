@@ -68,7 +68,7 @@ namespace Quanlycf
             string password = txtPassword.Text;
             if (Login(username, password) == 1)
             {
-                ID = getID(username, password);
+               //ID = getID(username, password);
                 fStaff f = new fStaff();
                 this.Hide();
                 f.ShowDialog();
@@ -77,7 +77,7 @@ namespace Quanlycf
             }
             else if (Login(username, password) == 2)
             {
-                ID = getID(username, password);
+                //ID = getID(username, password);
                 fAdmin f = new fAdmin();
                 this.Hide();
                 f.ShowDialog();
@@ -85,7 +85,7 @@ namespace Quanlycf
             }
             else
             {
-                ID = "";
+                //ID = "";
                 MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

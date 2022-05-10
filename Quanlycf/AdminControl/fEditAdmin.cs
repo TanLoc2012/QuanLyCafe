@@ -21,7 +21,7 @@ namespace Quanlycf
         private void fEditAdmin_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'managerCoffeeDataSet2.tblRole' table. You can move, or remove it, as needed.
-            this.tblRoleTableAdapter.Fill(this.managerCoffeeDataSet2.tblRole);
+            //this.tblRoleTableAdapter.Fill(this.managerCoffeeDataSet2.tblRole);
 
         }
 
