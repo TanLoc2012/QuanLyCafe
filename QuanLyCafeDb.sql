@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[tblUser] (
 
 CREATE TABLE [dbo].[tblOrders] (
 	id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	id_nv INT NOT NULL FOREIGN KEY REFERENCES tblNhanvien(id),
+	id_nv INT NOT NULL FOREIGN KEY REFERENCES tblUser(id),
 	total_money INT NOT NULL,
 	statusOrder INT NOT NULL,
 	ngay_ban DATETIME NOT NULL,
