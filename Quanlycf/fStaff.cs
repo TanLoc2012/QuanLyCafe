@@ -219,9 +219,10 @@ namespace Quanlycf
             DialogResult dialogResult = MessageBox.Show("Tổng tiền là " + total_money_new.ToString() +" VNĐ", "Xác nhận thanh toán !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.No)
                 return;
-
+            DateTime time = DateTime.Now;
+       
             string sql = "INSERT INTO dbo.tblOrders(id_nv, ngay_ban, statusOrder, total_money)"
-                    + "VALUES(1, \'20220121 2:25:00 PM\', 0," + total_money_new.ToString() + ")";
+                    + "VALUES(1, \'"+time.ToString()+" \', 0," + total_money_new.ToString() + ")";
             Class.Function.updateData_nomesses(sql);
 
             string sql_getID_order = "SELECT MAX(id)" +
